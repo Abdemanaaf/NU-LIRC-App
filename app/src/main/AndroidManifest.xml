@@ -12,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,21 +20,51 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginPage" />
+
         <activity
             android:name=".QuickLinks"
             android:label="@string/title_activity_quick_links"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".SignUpPage" />
-        <activity android:name=".SettingsActivity" />
-        <activity android:name=".AdminLogin" />
-        <activity android:name=".NUAtGlance" />
-        <activity android:name=".EResources" />
-        <activity android:name=".AboutActivity" />
+
+        <activity
+            android:name=".LoginPage"
+            android:label="@string/title_activity_login" />
+
+        <activity
+            android:name=".SignUpPage"
+            android:label="@string/title_activity_sign_up" />
+
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings" />
+
+        <activity
+            android:name=".AdminLogin"
+            android:label="@string/title_activity_admin_login" />
+
+        <activity
+            android:name=".NUAtGlance"
+            android:label="@string/title_activity_nu_at_glance" />
+
+        <activity
+            android:name=".EResources"
+            android:label="@string/title_activity_e_resources" />
+
+        <activity
+            android:name=".AboutActivity"
+            android:label="@string/title_activity_about" />
+
         <activity android:name=".ServicesActivity" />
+
         <activity android:name=".OnlineLearning" />
+
         <activity android:name=".OpenAccess" />
-        <activity android:name=".NetworkActivity"></activity>
+
+        <activity
+            android:name=".NetworkActivity"
+            android:label="@string/title_activity_network" />
+
+        <activity android:name=".Introduction" />
     </application>
 
 </manifest>

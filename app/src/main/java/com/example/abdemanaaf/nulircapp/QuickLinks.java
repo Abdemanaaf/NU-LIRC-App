@@ -36,6 +36,8 @@ public class QuickLinks extends AppCompatActivity implements NavigationView.OnNa
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        setLIRCTimings();
+
         mEmailNav = findViewById(R.id.nav_email);
         mDatabase = FirebaseDatabase.getInstance().getReference("Users");
 
@@ -63,6 +65,34 @@ public class QuickLinks extends AppCompatActivity implements NavigationView.OnNa
         };
 
         userId = mAuth.getCurrentUser().getUid();
+
+    }
+
+    private void setLIRCTimings() {
+
+        TextView monToFri = findViewById(R.id.monFriLibTime);
+        monToFri.setText(R.string.mon_fri_lib_time);
+
+        TextView sat = findViewById(R.id.satLibTime);
+        sat.setText(R.string.sat_lib_time);
+
+        TextView sun = findViewById(R.id.sunLibTime);
+        sun.setText(R.string.sun_lib_time);
+
+        TextView sat_ex = findViewById(R.id.satExTime);
+        sat_ex.setText(R.string.sat_ex_time);
+
+        TextView sun_ex = findViewById(R.id.sunExTime);
+        sun_ex.setText(R.string.sun_ex_time);
+
+        TextView sat_circ = findViewById(R.id.monToSatCircTime);
+        sat_circ.setText(R.string.mon_sat_circ_time);
+
+        TextView sun_circ = findViewById(R.id.sunCircTime);
+        sun_circ.setText(R.string.sun_circ_time);
+
+        TextView closed = findViewById(R.id.closed);
+        closed.setText(R.string.closed);
 
     }
 
