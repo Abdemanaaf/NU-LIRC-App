@@ -32,7 +32,7 @@
             android:layout_gravity="center"
             android:layout_margin="16dp"
             android:fontFamily="sans-serif-light"
-            android:text="@string/book_avail"
+            android:text="@string/lirc_timings"
             android:textSize="24sp" />
 
         <TextView

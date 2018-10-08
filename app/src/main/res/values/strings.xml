@@ -8,13 +8,19 @@
     <string name="cancel">Cancel</string>
     <string name="enrollment">Enrollment Number</string>
     <string name="show_password">Show Password</string>
+
     <string name="about">About</string>
     <string name="feedback">Feedback</string>
-    <string name="nu_at_glance">NU@Glance</string>
+    <string name="e_resources">E-Resources</string>
+    <string name="services">Services</string>
+    <string name="online_learning">Online Learning</string>
+    <string name="open_access">Open Access</string>
+    <string name="network">Network</string>
+
     <string name="misc">Miscellaneous</string>
     <string name="issue_return">Issue and Return</string>
-    <string name="book_avail">Check Book Availability</string>
     <string name="new_arrivals">New Arrivals</string>
+    <string name="lirc_timings">LIRC Timings</string>
     <string name="lib_time">Library Timing</string>
     <string name="circulation_time">Circulation Timing</string>
     <string name="admin_login">Admin Login</string>

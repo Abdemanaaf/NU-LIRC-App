@@ -26,7 +26,14 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".SignUpPage" />
         <activity android:name=".SettingsActivity" />
-        <activity android:name=".AdminLogin"></activity>
+        <activity android:name=".AdminLogin" />
+        <activity android:name=".NUAtGlance" />
+        <activity android:name=".EResources" />
+        <activity android:name=".AboutActivity" />
+        <activity android:name=".ServicesActivity" />
+        <activity android:name=".OnlineLearning" />
+        <activity android:name=".OpenAccess" />
+        <activity android:name=".NetworkActivity"></activity>
     </application>
 
 </manifest>

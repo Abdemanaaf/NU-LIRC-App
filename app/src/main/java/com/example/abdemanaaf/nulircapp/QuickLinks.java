@@ -1,6 +1,7 @@
 package com.example.abdemanaaf.nulircapp;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -100,14 +101,33 @@ public class QuickLinks extends AppCompatActivity implements NavigationView.OnNa
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_glance) {
-            // Handle the camera action
+        if (id == R.id.navE_Resources) {
+            startActivity(new Intent(QuickLinks.this, EResources.class));
+        }
+        if (id == R.id.navServices) {
+            startActivity(new Intent(QuickLinks.this, ServicesActivity.class));
+        }
+        if (id == R.id.navOnlineLearning) {
+            startActivity(new Intent(QuickLinks.this, OnlineLearning.class));
+        }
+        if (id == R.id.navOpenAccess) {
+            startActivity(new Intent(QuickLinks.this, OpenAccess.class));
+        }
+        if (id == R.id.navNetwork) {
+            startActivity(new Intent(QuickLinks.this, NetworkActivity.class));
+        }
+        if (id == R.id.navAbout) {
+            startActivity(new Intent(QuickLinks.this, AboutActivity.class));
+        }
+        if (id == R.id.navFeedback) {
+            String url = "https://docs.google.com/forms/d/e/1FAIpQLSepsmj3L19Ts6rP6X0h_Try7jrCvRylv3d4kyON4xDr6V1bLg/viewform";
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(url));
+            startActivity(intent);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
