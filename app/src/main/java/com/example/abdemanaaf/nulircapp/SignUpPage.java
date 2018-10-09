@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -18,13 +19,14 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Objects;
+
 public class SignUpPage extends AppCompatActivity {
 
     private EditText mName;
     private EditText mEnrollment;
     private EditText mUsername;
     private EditText mPassword;
-    private EditText mAge;
 
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
@@ -42,7 +44,6 @@ public class SignUpPage extends AppCompatActivity {
         mEnrollment = findViewById(R.id.enrollment_sign_up);
         mUsername = findViewById(R.id.username_sign_up);
         mPassword = findViewById(R.id.password_sign_up);
-        mAge = findViewById(R.id.age);
 
         mProgress = new ProgressDialog(this);
 
@@ -52,6 +53,15 @@ public class SignUpPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startRegister();
+            }
+        });
+
+        TextView haveAccount = findViewById(R.id.haveAccount);
+        haveAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SignUpPage.this, LoginPage.class));
+                finish();
             }
         });
     }
@@ -101,18 +111,15 @@ public class SignUpPage extends AppCompatActivity {
         final String name = mName.getText().toString().trim();
         final String email = mUsername.getText().toString().trim();
         final String enrollment = mEnrollment.getText().toString().trim();
-        final String age = mAge.getText().toString().trim();
 
-        String user_id = mAuth.getCurrentUser().getUid();
+        String user_id = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
 
-        if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(enrollment)
-                && !TextUtils.isEmpty(age)) {
+        if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(enrollment)) {
 
             DatabaseReference currentUser = mDatabase.child(user_id);
             currentUser.child("name").setValue(name);
             currentUser.child("enrollment").setValue(enrollment);
             currentUser.child("email").setValue(email);
-            currentUser.child("age").setValue(age);
 
         } else {
             Toast.makeText(SignUpPage.this, "Fill all the Fields", Toast.LENGTH_SHORT).show();

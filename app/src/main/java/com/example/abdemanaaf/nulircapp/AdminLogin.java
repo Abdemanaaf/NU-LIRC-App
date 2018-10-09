@@ -9,12 +9,15 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.Objects;
 
 public class AdminLogin extends AppCompatActivity {
 
@@ -36,11 +39,19 @@ public class AdminLogin extends AppCompatActivity {
         mProgress = new ProgressDialog(this);
 
         Button adminLogin = findViewById(R.id.adminLoginButton);
-
         adminLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 checkLogin();
+            }
+        });
+
+        TextView studentLogin = findViewById(R.id.clickStudentLogin);
+        studentLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AdminLogin.this, LoginPage.class));
+                finish();
             }
         });
     }
@@ -72,7 +83,7 @@ public class AdminLogin extends AppCompatActivity {
 
                                 mProgress.dismiss();
                                 Toast.makeText(AdminLogin.this,
-                                        "Error Logging In" + "\n" + task.getException().getMessage(),
+                                        "Error Logging In" + "\n" + Objects.requireNonNull(task.getException()).getMessage(),
                                         Toast.LENGTH_SHORT).show();
                             }
 

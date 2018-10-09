@@ -8,6 +8,7 @@
     <string name="cancel">Cancel</string>
     <string name="enrollment">Enrollment Number</string>
     <string name="show_password">Show Password</string>
+    <string name="have_account">Already Registered? Click Here to Login</string>
 
     <string name="about">About</string>
     <string name="feedback">Feedback</string>
@@ -25,6 +26,7 @@
     <string name="circulation_time">Circulation Timing</string>
     <string name="admin_login">Admin Login</string>
     <string name="click_admin">Administrator Login</string>
+    <string name="click_student">Student Login</string>
 
     <string name="links">Quick Links</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -48,11 +50,7 @@
     <string name="action_logout">Logout</string>
     <string name="no_account">No account yet? Create one</string>
     <string name="sign_up"> Sign Up</string>
-    <string name="gender">Gender</string>
-    <string name="male">Male</string>
-    <string name="female">Female</string>
     <string name="name">Name</string>
-    <string name="age">Age</string>
     <string name="member">Already a member? Login</string>
     <string name="create_account">Create Account</string>
     <string name="description">NU Logo</string>

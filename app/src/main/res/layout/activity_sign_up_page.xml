@@ -25,7 +25,7 @@
             android:id="@+id/name_sign_up"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="46dp"
+            android:layout_marginTop="30dp"
             android:layout_marginBottom="8dp"
             android:hint="@string/name"
             android:inputType="text" />
@@ -58,16 +58,6 @@
             android:hint="@string/password"
             android:inputType="textPassword" />
 
-
-        <EditText
-            android:id="@+id/age"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:hint="@string/age"
-            android:inputType="number" />
-
         <Button
             android:id="@+id/createButton"
             android:layout_width="match_parent"
@@ -76,6 +66,15 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:text="@string/create_account" />
+
+        <TextView
+            android:id="@+id/haveAccount"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:gravity="center"
+            android:text="@string/have_account"
+            android:textSize="16sp" />
 
 
     </LinearLayout>

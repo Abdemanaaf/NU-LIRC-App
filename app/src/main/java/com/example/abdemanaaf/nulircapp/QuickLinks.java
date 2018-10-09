@@ -24,8 +24,6 @@ public class QuickLinks extends AppCompatActivity implements NavigationView.OnNa
     private FirebaseAuth.AuthStateListener mAuthListener;
     private DatabaseReference mDatabase;
 
-    private static final String TAG = MainActivity.class.getSimpleName();
-
     private TextView mEmailNav;
     private String userId;
 
@@ -154,7 +152,8 @@ public class QuickLinks extends AppCompatActivity implements NavigationView.OnNa
             startActivity(new Intent(QuickLinks.this, AboutActivity.class));
         }
         if (id == R.id.navFeedback) {
-            String url = "https://docs.google.com/forms/d/e/1FAIpQLSepsmj3L19Ts6rP6X0h_Try7jrCvRylv3d4kyON4xDr6V1bLg/viewform";
+            String url =
+                    "https://docs.google.com/forms/d/e/1FAIpQLSepsmj3L19Ts6rP6X0h_Try7jrCvRylv3d4kyON4xDr6V1bLg/viewform";
             Intent intent = new Intent(Intent.ACTION_VIEW);
             intent.setData(Uri.parse(url));
             startActivity(intent);
