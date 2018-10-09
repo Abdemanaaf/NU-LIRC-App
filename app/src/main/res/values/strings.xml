@@ -72,5 +72,9 @@
     <string name="intro">Introduction</string>
     <string name="vision_mission">Vision And Mission</string>
     <string name="user_facilities">User Facilities</string>
+    <string name="nu_at_glance">NU@Glance</string>
+    <string name="advisory">Advisory Committee</string>
+    <string name="collection">Collections</string>
+    <string name="general_rules">General Rules</string>
 
 </resources>

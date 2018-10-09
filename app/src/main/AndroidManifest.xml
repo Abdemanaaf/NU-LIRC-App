@@ -50,8 +50,6 @@
         <activity
             android:name=".NetworkActivity"
             android:label="@string/title_activity_network" />
-        <activity android:name=".Introduction" />
-        <activity android:name=".VisionMission"></activity>
     </application>
 
 </manifest>
