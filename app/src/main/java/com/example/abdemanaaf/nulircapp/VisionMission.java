@@ -1,24 +1,24 @@
 package com.example.abdemanaaf.nulircapp;
 
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.widget.TextView;
 
 import java.io.InputStream;
 
-public class Introduction extends AppCompatActivity {
+public class VisionMission extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_introduction);
+        setContentView(R.layout.activity_vision_mission);
 
-        TextView introText = findViewById(R.id.introText);
+        TextView visionMissionText = findViewById(R.id.visionMissionText);
         String text = "";
 
         try {
 
-            InputStream inputStream = getAssets().open("introduction_data");
+            InputStream inputStream = getAssets().open("vision_Mission_data");
             int size = inputStream.available();
             byte[] buffer = new byte[size];
 
@@ -31,8 +31,6 @@ public class Introduction extends AppCompatActivity {
 
         }
 
-        introText.setText(text);
-
-
+        visionMissionText.setText(text);
     }
 }
