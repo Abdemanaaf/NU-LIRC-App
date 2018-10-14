@@ -134,9 +134,9 @@ public class QuickLinks extends AppCompatActivity implements NavigationView.OnNa
         int id = item.getItemId();
 
         if (id == R.id.navE_Resources) {
-            startActivity(new Intent(QuickLinks.this, EResources.class));
+            startActivity(new Intent(QuickLinks.this, EResourcesActivity.class));
         }
-        if (id == R.id.navServices) {
+        /*if (id == R.id.navServices) {
             startActivity(new Intent(QuickLinks.this, ServicesActivity.class));
         }
         if (id == R.id.navOnlineLearning) {
@@ -147,7 +147,7 @@ public class QuickLinks extends AppCompatActivity implements NavigationView.OnNa
         }
         if (id == R.id.navNetwork) {
             startActivity(new Intent(QuickLinks.this, NetworkActivity.class));
-        }
+        }*/
         if (id == R.id.navAbout) {
             startActivity(new Intent(QuickLinks.this, AboutActivity.class));
         }

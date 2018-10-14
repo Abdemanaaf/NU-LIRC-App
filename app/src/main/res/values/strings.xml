@@ -40,7 +40,7 @@
     <string name="title_activity_about">About</string>
     <string name="title_activity_login">Login</string>
     <string name="title_activity_admin_login">Admin Login</string>
-    <string name="title_activity_e_resources">E-Resources</string>
+    <string name="title_activity_eresources">EResources</string>
     <string name="title_activity_network">Network</string>
     <string name="title_activity_nu_at_glance">NU@Glance</string>
     <string name="title_activity_sign_up">Sign Up</string>
@@ -74,5 +74,12 @@
     <string name="advisory">Advisory Committee</string>
     <string name="collection">Collections</string>
     <string name="general_rules">General Rules</string>
+
+    <string name="ref">Reference</string>
+    <string name="lib_loan">Inter Library Loan</string>
+    <string name="repro_fac">Reprographic Facilities</string>
+    <string name="user_orientation">User Orientation Programmes</string>
+    <string name="knowledge">Knowledge Dissemination Cell</string>
+    <string name="sugamya">Sugamya Pustakalaya</string>
 
 </resources>

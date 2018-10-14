@@ -36,20 +36,13 @@
             android:name=".AdminLogin"
             android:label="@string/title_activity_admin_login" />
         <activity
-            android:name=".NUAtGlance"
-            android:label="@string/title_activity_nu_at_glance" />
-        <activity
-            android:name=".EResources"
-            android:label="@string/title_activity_e_resources" />
-        <activity
             android:name=".AboutActivity"
-            android:label="@string/title_activity_about" />
-        <activity android:name=".ServicesActivity" />
-        <activity android:name=".OnlineLearning" />
-        <activity android:name=".OpenAccess" />
+            android:label="@string/title_activity_about"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".NetworkActivity"
-            android:label="@string/title_activity_network" />
+            android:name=".EResourcesActivity"
+            android:label="@string/title_activity_eresources"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

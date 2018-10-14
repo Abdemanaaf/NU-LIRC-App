@@ -65,6 +65,8 @@ public class AdminLogin extends AppCompatActivity {
             mProgress.setMessage("Logging In...");
             mProgress.show();
 
+            email = email + "@gmail.com";
+
             mAuth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(AdminLogin.this, new OnCompleteListener<AuthResult>() {
                         @Override

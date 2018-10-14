@@ -23,16 +23,15 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import java.io.InputStream;
 
-public class AboutActivity extends AppCompatActivity
+public class EResourcesActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private TextView introText;
-    private TextView visionMissionText;
-    private TextView userFacilitiesText;
-    private TextView nuAtGlanceText;
-    private TextView advisoryText;
-    private TextView collectionText;
-    private TextView generalRulesText;
+    private TextView refText;
+    private TextView libLoanText;
+    private TextView reproFacText;
+    private TextView userOrienText;
+    private TextView knowledgeText;
+    private TextView sugamyaText;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -40,7 +39,7 @@ public class AboutActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about);
+        setContentView(R.layout.activity_eresources);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -53,21 +52,19 @@ public class AboutActivity extends AppCompatActivity
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        introText = findViewById(R.id.introText);
-        visionMissionText = findViewById(R.id.visionMissionText);
-        userFacilitiesText = findViewById(R.id.userFacilitiesText);
-        nuAtGlanceText = findViewById(R.id.nuAtGlanceText);
-        advisoryText = findViewById(R.id.advisoryText);
-        collectionText = findViewById(R.id.collectionText);
-        generalRulesText = findViewById(R.id.generalRulesText);
+        refText = findViewById(R.id.refText);
+        libLoanText = findViewById(R.id.libLoanText);
+        reproFacText = findViewById(R.id.reproFacText);
+        userOrienText = findViewById(R.id.userOrienText);
+        knowledgeText = findViewById(R.id.knowledgeText);
+        sugamyaText = findViewById(R.id.sugamyaText);
 
-        final ToggleButton intro = findViewById(R.id.intro);
-        final ToggleButton visionMission = findViewById(R.id.visionMission);
-        final ToggleButton userFacilities = findViewById(R.id.userFacilities);
-        final ToggleButton nuAtGlance = findViewById(R.id.nuAtGlance);
-        final ToggleButton advisory = findViewById(R.id.advisory);
-        final ToggleButton collection = findViewById(R.id.collection);
-        final ToggleButton generalRules = findViewById(R.id.generalRules);
+        final ToggleButton ref = findViewById(R.id.ref);
+        final ToggleButton libLoan = findViewById(R.id.libLoan);
+        final ToggleButton reproFac = findViewById(R.id.reproFac);
+        final ToggleButton userOrien = findViewById(R.id.userOrien);
+        final ToggleButton knowledge = findViewById(R.id.knowledge);
+        final ToggleButton sugamya = findViewById(R.id.sugamya);
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -75,7 +72,7 @@ public class AboutActivity extends AppCompatActivity
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
 
                 if (firebaseAuth.getCurrentUser() == null) {
-                    Intent signUpIntent = new Intent(AboutActivity.this, LoginPage.class);
+                    Intent signUpIntent = new Intent(EResourcesActivity.this, LoginPage.class);
                     signUpIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(signUpIntent);
                 }
@@ -83,80 +80,69 @@ public class AboutActivity extends AppCompatActivity
             }
         };
 
-        intro.setOnClickListener(new View.OnClickListener() {
+        ref.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean isChecked = intro.isChecked();
+                boolean isChecked = ref.isChecked();
                 if (isChecked)
-                    getData("introduction_data", introText);
+                    getData("reference_data", refText);
                 else
-                    introText.setText("");
+                    refText.setText("");
             }
         });
 
-        visionMission.setOnClickListener(new View.OnClickListener() {
+        libLoan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean isChecked = visionMission.isChecked();
+                boolean isChecked = libLoan.isChecked();
                 if (isChecked)
-                    getData("vision_mission_data", visionMissionText);
+                    getData("inter_library_loan_data", libLoanText);
                 else
-                    visionMissionText.setText("");
+                    libLoanText.setText("");
             }
         });
 
-        userFacilities.setOnClickListener(new View.OnClickListener() {
+        reproFac.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean isChecked = userFacilities.isChecked();
+                boolean isChecked = reproFac.isChecked();
                 if (isChecked)
-                    getData("user_facilities_data", userFacilitiesText);
+                    getData("reprographic_facilities_data", reproFacText);
                 else
-                    userFacilitiesText.setText("");
+                    reproFacText.setText("");
             }
         });
 
-        nuAtGlance.setOnClickListener(new View.OnClickListener() {
+        userOrien.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean isChecked = nuAtGlance.isChecked();
+                boolean isChecked = userOrien.isChecked();
                 if (isChecked)
-                    getData("nu_at_glance_data", nuAtGlanceText);
+                    getData("users_orientation_programmes_data", userOrienText);
                 else
-                    nuAtGlanceText.setText("");
+                    userOrienText.setText("");
             }
         });
 
-        advisory.setOnClickListener(new View.OnClickListener() {
+        knowledge.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean isChecked = advisory.isChecked();
+                boolean isChecked = knowledge.isChecked();
                 if (isChecked)
-                    getData("advisory_data", advisoryText);
+                    getData("knowledge_dissemination_cell_data", knowledgeText);
                 else
-                    advisoryText.setText("");
+                    knowledgeText.setText("");
             }
         });
 
-        collection.setOnClickListener(new View.OnClickListener() {
+        sugamya.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean isChecked = collection.isChecked();
+                boolean isChecked = sugamya.isChecked();
                 if (isChecked)
-                    getData("collection_data", collectionText);
+                    getData("sugamya_pustakalaya", sugamyaText);
                 else
-                    collectionText.setText("");
-            }
-        });
-
-        generalRules.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                boolean isChecked = generalRules.isChecked();
-                if (isChecked)
-                    getData("general_rules_data", generalRulesText);
-                else
-                    generalRulesText.setText("");
+                    sugamyaText.setText("");
             }
         });
     }
@@ -186,7 +172,6 @@ public class AboutActivity extends AppCompatActivity
     protected void onStart() {
         super.onStart();
         mAuth.addAuthStateListener(mAuthListener);
-
     }
 
     @Override
@@ -210,7 +195,7 @@ public class AboutActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.action_settings)
-            startActivity(new Intent(AboutActivity.this, SettingsActivity.class));
+            startActivity(new Intent(EResourcesActivity.this, SettingsActivity.class));
 
         if (id == R.id.action_logout)
             mAuth.signOut();
@@ -224,27 +209,27 @@ public class AboutActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.navE_Resources) {
-            startActivity(new Intent(AboutActivity.this, EResourcesActivity.class));
+            startActivity(new Intent(EResourcesActivity.this, EResourcesActivity.class));
             finish();
         }
         /*if (id == R.id.navServices) {
-            startActivity(new Intent(AboutActivity.this, ServicesActivity.class));
+            startActivity(new Intent(EResourcesActivity.this, ServicesActivity.class));
             finish();
         }
         if (id == R.id.navOnlineLearning) {
-            startActivity(new Intent(AboutActivity.this, OnlineLearning.class));
+            startActivity(new Intent(EResourcesActivity.this, OnlineLearning.class));
             finish();
         }
         if (id == R.id.navOpenAccess) {
-            startActivity(new Intent(AboutActivity.this, OpenAccess.class));
+            startActivity(new Intent(EResourcesActivity.this, OpenAccess.class));
             finish();
         }
         if (id == R.id.navNetwork) {
-            startActivity(new Intent(AboutActivity.this, NetworkActivity.class));
+            startActivity(new Intent(EResourcesActivity.this, NetworkActivity.class));
             finish();
         }*/
         if (id == R.id.navAbout) {
-            startActivity(new Intent(AboutActivity.this, AboutActivity.class));
+            startActivity(new Intent(EResourcesActivity.this, AboutActivity.class));
             finish();
         }
         if (id == R.id.navFeedback) {
