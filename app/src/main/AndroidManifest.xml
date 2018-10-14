@@ -42,6 +42,22 @@
         <activity
             android:name=".EResourcesActivity"
             android:label="@string/title_activity_eresources"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ServicesActivity"
+            android:label="@string/title_activity_services"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".OnlineLearning"
+            android:label="@string/title_activity_online_learning"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".OpenAccess"
+            android:label="@string/title_activity_open_access"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".NetworkActivity"
+            android:label="@string/title_activity_network"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

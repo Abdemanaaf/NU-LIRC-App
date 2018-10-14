@@ -17,6 +17,7 @@
     <string name="online_learning">Online Learning</string>
     <string name="open_access">Open Access</string>
     <string name="network">Network</string>
+    <string name="book_req_form">Book Requisition Form</string>
 
     <string name="misc">Miscellaneous</string>
     <string name="issue_return">Issue and Return</string>
@@ -81,5 +82,39 @@
     <string name="user_orientation">User Orientation Programmes</string>
     <string name="knowledge">Knowledge Dissemination Cell</string>
     <string name="sugamya">Sugamya Pustakalaya</string>
+    <string name="title_activity_services">ServicesActivity</string>
+    <string name="title_activity_online_learning">OnlineLearning</string>
+    <string name="title_activity_open_access">OpenAccess</string>
+
+    <string name="e_Path">e-PGPathshala</string>
+    <string name="swayam">Swayam</string>
+    <string name="vidwan">Vidwan</string>
+    <string name="e_acharya">e-Acharya</string>
+    <string name="nptel">NPTEL</string>
+    <string name="vidya_mitra">Vidya Mitra</string>
+
+    <string name="e_journals">E-Journals</string>
+    <string name="e_books">E-Books</string>
+    <string name="anti_plag">Anti Plagiarism</string>
+    <string name="theses">Theses</string>
+
+    <string name="academic_journals">Academic Journals</string>
+    <string name="african_journals">African Journals</string>
+    <string name="aircc">AIRCC Digital Library</string>
+    <string name="cog_prints">Cog Prints</string>
+    <string name="doaj">DOAJ</string>
+    <string name="high_wire">High Wire</string>
+    <string name="ias">IAS</string>
+    <string name="ijcms">IJCMS</string>
+    <string name="intech">INTECH</string>
+    <string name="journals_seek">Journals Seek</string>
+    <string name="muse_india">Muse India</string>
+    <string name="ncert">NCERT Journals</string>
+    <string name="oalib">OALIB</string>
+    <string name="online_journals">Online Journals</string>
+    <string name="nopr">NOPR</string>
+    <string name="springer_open">Springer Open</string>
+    <string name="south_asia">South Asia Archive</string>
+    <string name="world_sci">World Scientific</string>
 
 </resources>

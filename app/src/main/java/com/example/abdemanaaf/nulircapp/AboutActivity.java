@@ -227,7 +227,7 @@ public class AboutActivity extends AppCompatActivity
             startActivity(new Intent(AboutActivity.this, EResourcesActivity.class));
             finish();
         }
-        /*if (id == R.id.navServices) {
+        if (id == R.id.navServices) {
             startActivity(new Intent(AboutActivity.this, ServicesActivity.class));
             finish();
         }
@@ -242,10 +242,17 @@ public class AboutActivity extends AppCompatActivity
         if (id == R.id.navNetwork) {
             startActivity(new Intent(AboutActivity.this, NetworkActivity.class));
             finish();
-        }*/
+        }
         if (id == R.id.navAbout) {
             startActivity(new Intent(AboutActivity.this, AboutActivity.class));
             finish();
+        }
+        if (id == R.id.bookReqForm) {
+            String url =
+                    "https://docs.google.com/forms/d/e/1FAIpQLSddAOawl7LkVOZ1eyJHTGDqvKVBxqNIMqMECQ2Gd8mY_k5pxA/viewform";
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(url));
+            startActivity(intent);
         }
         if (id == R.id.navFeedback) {
             String url =

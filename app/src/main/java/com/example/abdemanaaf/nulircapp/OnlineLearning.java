@@ -12,32 +12,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
-public class QuickLinks extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class OnlineLearning extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
-    private DatabaseReference mDatabase;
-
-    private TextView mEmailNav;
-    private String userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_quick_links);
+        setContentView(R.layout.activity_online_learning);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        setLIRCTimings();
-
-        mEmailNav = findViewById(R.id.nav_email);
-        mDatabase = FirebaseDatabase.getInstance().getReference("Users");
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -48,13 +39,20 @@ public class QuickLinks extends AppCompatActivity implements NavigationView.OnNa
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        TextView ePath = findViewById(R.id.ePath);
+        TextView swayam = findViewById(R.id.swayam);
+        TextView vidwan = findViewById(R.id.vidwan);
+        TextView eAcharya = findViewById(R.id.eAcharya);
+        TextView nptel = findViewById(R.id.nptel);
+        TextView vidyaMitra = findViewById(R.id.vidyaMitra);
+
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
 
                 if (firebaseAuth.getCurrentUser() == null) {
-                    Intent signUpIntent = new Intent(QuickLinks.this, LoginPage.class);
+                    Intent signUpIntent = new Intent(OnlineLearning.this, LoginPage.class);
                     signUpIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(signUpIntent);
                 }
@@ -62,36 +60,65 @@ public class QuickLinks extends AppCompatActivity implements NavigationView.OnNa
             }
         };
 
-        userId = mAuth.getCurrentUser().getUid();
+        ePath.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = "http://epgp.inflibnet.ac.in/index.php";
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                startActivity(intent);
+            }
+        });
 
-    }
+        swayam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = "https://swayam.gov.in/";
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                startActivity(intent);
+            }
+        });
 
-    private void setLIRCTimings() {
+        vidwan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = "https://vidwan.inflibnet.ac.in/";
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                startActivity(intent);
+            }
+        });
 
-        TextView monToFri = findViewById(R.id.monFriLibTime);
-        monToFri.setText(R.string.mon_fri_lib_time);
+        eAcharya.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = "http://content.inflibnet.ac.in/";
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                startActivity(intent);
+            }
+        });
 
-        TextView sat = findViewById(R.id.satLibTime);
-        sat.setText(R.string.sat_lib_time);
+        nptel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = "https://nptel.ac.in/";
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                startActivity(intent);
+            }
+        });
 
-        TextView sun = findViewById(R.id.sunLibTime);
-        sun.setText(R.string.sun_lib_time);
-
-        TextView sat_ex = findViewById(R.id.satExTime);
-        sat_ex.setText(R.string.sat_ex_time);
-
-        TextView sun_ex = findViewById(R.id.sunExTime);
-        sun_ex.setText(R.string.sun_ex_time);
-
-        TextView sat_circ = findViewById(R.id.monToSatCircTime);
-        sat_circ.setText(R.string.mon_sat_circ_time);
-
-        TextView sun_circ = findViewById(R.id.sunCircTime);
-        sun_circ.setText(R.string.sun_circ_time);
-
-        TextView closed = findViewById(R.id.closed);
-        closed.setText(R.string.closed);
-
+        vidyaMitra.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = "http://content.inflibnet.ac.in/";
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -121,7 +148,7 @@ public class QuickLinks extends AppCompatActivity implements NavigationView.OnNa
         int id = item.getItemId();
 
         if (id == R.id.action_settings)
-            startActivity(new Intent(QuickLinks.this, SettingsActivity.class));
+            startActivity(new Intent(OnlineLearning.this, SettingsActivity.class));
 
         if (id == R.id.action_logout)
             mAuth.signOut();
@@ -129,27 +156,34 @@ public class QuickLinks extends AppCompatActivity implements NavigationView.OnNa
         return super.onOptionsItemSelected(item);
     }
 
+    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
         if (id == R.id.navE_Resources) {
-            startActivity(new Intent(QuickLinks.this, EResourcesActivity.class));
+            startActivity(new Intent(OnlineLearning.this, EResourcesActivity.class));
+            finish();
         }
         if (id == R.id.navServices) {
-            startActivity(new Intent(QuickLinks.this, ServicesActivity.class));
+            startActivity(new Intent(OnlineLearning.this, ServicesActivity.class));
+            finish();
         }
         if (id == R.id.navOnlineLearning) {
-            startActivity(new Intent(QuickLinks.this, OnlineLearning.class));
+            startActivity(new Intent(OnlineLearning.this, OnlineLearning.class));
+            finish();
         }
         if (id == R.id.navOpenAccess) {
-            startActivity(new Intent(QuickLinks.this, OpenAccess.class));
+            startActivity(new Intent(OnlineLearning.this, OpenAccess.class));
+            finish();
         }
         if (id == R.id.navNetwork) {
-            startActivity(new Intent(QuickLinks.this, NetworkActivity.class));
+            startActivity(new Intent(OnlineLearning.this, NetworkActivity.class));
+            finish();
         }
         if (id == R.id.navAbout) {
-            startActivity(new Intent(QuickLinks.this, AboutActivity.class));
+            startActivity(new Intent(OnlineLearning.this, AboutActivity.class));
+            finish();
         }
         if (id == R.id.bookReqForm) {
             String url =

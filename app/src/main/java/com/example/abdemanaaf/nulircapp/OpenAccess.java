@@ -4,6 +4,11 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
+import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -12,32 +17,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
-public class QuickLinks extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class OpenAccess extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
-    private DatabaseReference mDatabase;
-
-    private TextView mEmailNav;
-    private String userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_quick_links);
+        setContentView(R.layout.activity_open_access);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        setLIRCTimings();
-
-        mEmailNav = findViewById(R.id.nav_email);
-        mDatabase = FirebaseDatabase.getInstance().getReference("Users");
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -48,50 +42,26 @@ public class QuickLinks extends AppCompatActivity implements NavigationView.OnNa
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        TabLayout tabLayout = findViewById(R.id.openAccessTabs);
+        ViewPager viewPager = findViewById(R.id.viewPager);
+
+        TabPagerAdapter tabPagerAdapter = new TabPagerAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(tabPagerAdapter);
+        tabLayout.setupWithViewPager(viewPager);
+
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
 
                 if (firebaseAuth.getCurrentUser() == null) {
-                    Intent signUpIntent = new Intent(QuickLinks.this, LoginPage.class);
+                    Intent signUpIntent = new Intent(OpenAccess.this, LoginPage.class);
                     signUpIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(signUpIntent);
                 }
 
             }
         };
-
-        userId = mAuth.getCurrentUser().getUid();
-
-    }
-
-    private void setLIRCTimings() {
-
-        TextView monToFri = findViewById(R.id.monFriLibTime);
-        monToFri.setText(R.string.mon_fri_lib_time);
-
-        TextView sat = findViewById(R.id.satLibTime);
-        sat.setText(R.string.sat_lib_time);
-
-        TextView sun = findViewById(R.id.sunLibTime);
-        sun.setText(R.string.sun_lib_time);
-
-        TextView sat_ex = findViewById(R.id.satExTime);
-        sat_ex.setText(R.string.sat_ex_time);
-
-        TextView sun_ex = findViewById(R.id.sunExTime);
-        sun_ex.setText(R.string.sun_ex_time);
-
-        TextView sat_circ = findViewById(R.id.monToSatCircTime);
-        sat_circ.setText(R.string.mon_sat_circ_time);
-
-        TextView sun_circ = findViewById(R.id.sunCircTime);
-        sun_circ.setText(R.string.sun_circ_time);
-
-        TextView closed = findViewById(R.id.closed);
-        closed.setText(R.string.closed);
-
     }
 
     @Override
@@ -121,7 +91,7 @@ public class QuickLinks extends AppCompatActivity implements NavigationView.OnNa
         int id = item.getItemId();
 
         if (id == R.id.action_settings)
-            startActivity(new Intent(QuickLinks.this, SettingsActivity.class));
+            startActivity(new Intent(OpenAccess.this, SettingsActivity.class));
 
         if (id == R.id.action_logout)
             mAuth.signOut();
@@ -129,27 +99,34 @@ public class QuickLinks extends AppCompatActivity implements NavigationView.OnNa
         return super.onOptionsItemSelected(item);
     }
 
+    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
         if (id == R.id.navE_Resources) {
-            startActivity(new Intent(QuickLinks.this, EResourcesActivity.class));
+            startActivity(new Intent(OpenAccess.this, EResourcesActivity.class));
+            finish();
         }
         if (id == R.id.navServices) {
-            startActivity(new Intent(QuickLinks.this, ServicesActivity.class));
+            startActivity(new Intent(OpenAccess.this, ServicesActivity.class));
+            finish();
         }
         if (id == R.id.navOnlineLearning) {
-            startActivity(new Intent(QuickLinks.this, OnlineLearning.class));
+            startActivity(new Intent(OpenAccess.this, OnlineLearning.class));
+            finish();
         }
         if (id == R.id.navOpenAccess) {
-            startActivity(new Intent(QuickLinks.this, OpenAccess.class));
+            startActivity(new Intent(OpenAccess.this, OpenAccess.class));
+            finish();
         }
         if (id == R.id.navNetwork) {
-            startActivity(new Intent(QuickLinks.this, NetworkActivity.class));
+            startActivity(new Intent(OpenAccess.this, NetworkActivity.class));
+            finish();
         }
         if (id == R.id.navAbout) {
-            startActivity(new Intent(QuickLinks.this, AboutActivity.class));
+            startActivity(new Intent(OpenAccess.this, AboutActivity.class));
+            finish();
         }
         if (id == R.id.bookReqForm) {
             String url =
