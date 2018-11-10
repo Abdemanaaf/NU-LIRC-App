@@ -86,12 +86,12 @@ public class SignUpPage extends AppCompatActivity {
                         mProgress.dismiss();
                         Toast.makeText(SignUpPage.this, "Sign Up Complete", Toast.LENGTH_SHORT).show();
 
-                        Intent quickLinksIntent = new Intent(SignUpPage.this, QuickLinks.class);
-                        quickLinksIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        Intent loginPageIntent = new Intent(SignUpPage.this, LoginPage.class);
+                        loginPageIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
                         saveToDatabase();
 
-                        startActivity(quickLinksIntent);
+                        startActivity(loginPageIntent);
                         finish();
 
                     } else {

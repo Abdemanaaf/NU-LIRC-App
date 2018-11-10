@@ -15,6 +15,16 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/issueReturn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="16dp"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/issue_return"
+            android:textSize="24sp" />
+
+        <TextView
             android:id="@+id/lircTiming"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

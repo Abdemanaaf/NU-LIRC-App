@@ -116,5 +116,6 @@
     <string name="springer_open">Springer Open</string>
     <string name="south_asia">South Asia Archive</string>
     <string name="world_sci">World Scientific</string>
+    <string name="title_activity_issue_return">IssueReturn</string>
 
 </resources>

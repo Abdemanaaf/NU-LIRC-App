@@ -58,6 +58,10 @@
         <activity
             android:name=".NetworkActivity"
             android:label="@string/title_activity_network"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".IssueReturn"
+            android:label="@string/title_activity_issue_return"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
