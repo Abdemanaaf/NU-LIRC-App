@@ -24,7 +24,6 @@ import java.util.Objects;
 public class SignUpPage extends AppCompatActivity {
 
     private EditText mName;
-    private EditText mEnrollment;
     private EditText mUsername;
     private EditText mPassword;
 
@@ -41,7 +40,6 @@ public class SignUpPage extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReferenceFromUrl("https://nu-lirc-app.firebaseio.com/").child("Users");
 
         mName = findViewById(R.id.name_sign_up);
-        mEnrollment = findViewById(R.id.enrollment_sign_up);
         mUsername = findViewById(R.id.username_sign_up);
         mPassword = findViewById(R.id.password_sign_up);
 
@@ -71,6 +69,18 @@ public class SignUpPage extends AppCompatActivity {
         final String email = mUsername.getText().toString().trim();
         String password = mPassword.getText().toString().trim();
 
+        if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            mUsername.setError("enter a valid email address");
+        } else {
+            mUsername.setError(null);
+        }
+
+        if (password.isEmpty() || password.length() < 4 || password.length() > 10) {
+            mPassword.setError("between 6 and 10 alphanumeric characters");
+        } else {
+            mPassword.setError(null);
+        }
+
         if (!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
 
             mProgress.setMessage("Signing Up...");
@@ -86,12 +96,12 @@ public class SignUpPage extends AppCompatActivity {
                         mProgress.dismiss();
                         Toast.makeText(SignUpPage.this, "Sign Up Complete", Toast.LENGTH_SHORT).show();
 
-                        Intent quickLinksIntent = new Intent(SignUpPage.this, QuickLinks.class);
-                        quickLinksIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        Intent loginPageIntent = new Intent(SignUpPage.this, LoginPage.class);
+                        loginPageIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
                         saveToDatabase();
 
-                        startActivity(quickLinksIntent);
+                        startActivity(loginPageIntent);
                         finish();
 
                     } else {
@@ -110,15 +120,19 @@ public class SignUpPage extends AppCompatActivity {
 
         final String name = mName.getText().toString().trim();
         final String email = mUsername.getText().toString().trim();
-        final String enrollment = mEnrollment.getText().toString().trim();
+
+        if (name.isEmpty() || name.length() < 3) {
+            mName.setError("at least 3 characters");
+        } else {
+            mName.setError(null);
+        }
 
         String user_id = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
 
-        if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(enrollment)) {
+        if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(email)) {
 
             DatabaseReference currentUser = mDatabase.child(user_id);
             currentUser.child("name").setValue(name);
-            currentUser.child("enrollment").setValue(enrollment);
             currentUser.child("email").setValue(email);
 
         } else {

@@ -71,7 +71,7 @@ public class LoginPage extends AppCompatActivity {
 
         if (!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
 
-            mProgress.setMessage("Logging In...");
+            mProgress.setMessage("Authenticating...");
             mProgress.show();
 
             mAuth.signInWithEmailAndPassword(email, password)

@@ -1,14 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".EBooks">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="EBOOKS" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="8dp"
+        android:orientation="vertical">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/collectionsArchive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="4dp"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/collections_archive"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/collegeTextbooks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="4dp"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/college_textbooks"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/eBooksDir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="4dp"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/e_books_directory"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/googleBooks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="4dp"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/google_books"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/googleScholar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="4dp"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/google_scholar"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/gutenberg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="4dp"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/gutenberg"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/intechBooks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="4dp"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/intech_books"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/openEduRes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="4dp"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/open_edu_resources"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/openTextbooks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="4dp"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/open_textbooks"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/worldEBook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="4dp"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/world_e_books"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/openLib"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="4dp"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/open_lib"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+
+</ScrollView>

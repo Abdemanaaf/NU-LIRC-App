@@ -44,16 +44,82 @@ public class EJournals extends Fragment {
             }
         });
 
-        /*TextView africanJournals = view.findViewById(R.id.africanJournals);
-        africanJournals.setOnClickListener(new View.OnClickListener() {
+        TextView aircc = view.findViewById(R.id.aircc);
+        aircc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String url = "htpps://www.google.com";
+                String url = "https://airccj.org/csecfp/library/index.php";
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse(url));
                 startActivity(intent);
             }
-        });*/
+        });
+
+        TextView nopr = view.findViewById(R.id.nopr);
+        nopr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = "http://nopr.niscair.res.in/";
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                startActivity(intent);
+            }
+        });
+
+        TextView journalsSeek = view.findViewById(R.id.journalsSeek);
+        journalsSeek.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = "http://journalseek.net/";
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                startActivity(intent);
+            }
+        });
+
+        TextView eJournalLink = view.findViewById(R.id.eJournalLink);
+        eJournalLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = "http://www.e-journals.org/";
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                startActivity(intent);
+            }
+        });
+
+        TextView ias = view.findViewById(R.id.ias);
+        ias.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = "https://www.ias.ac.in/listing/issues/pram";
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                startActivity(intent);
+            }
+        });
+
+        TextView worldSci = view.findViewById(R.id.worldSci);
+        worldSci.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = "https://www.worldscientific.com/worldscinet/opl";
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                startActivity(intent);
+            }
+        });
+
+        TextView southAsia = view.findViewById(R.id.southAsia);
+        southAsia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = "http://www.southasiaarchive.com/Browse";
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                startActivity(intent);
+            }
+        });
     }
 
 }
