@@ -119,9 +119,6 @@ public class QuickLinks extends AppCompatActivity implements NavigationView.OnNa
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.action_settings)
-            startActivity(new Intent(QuickLinks.this, SettingsActivity.class));
-
         if (id == R.id.action_logout)
             mAuth.signOut();
 

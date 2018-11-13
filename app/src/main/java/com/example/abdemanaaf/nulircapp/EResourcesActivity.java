@@ -194,9 +194,6 @@ public class EResourcesActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.action_settings)
-            startActivity(new Intent(EResourcesActivity.this, SettingsActivity.class));
-
         if (id == R.id.action_logout)
             mAuth.signOut();
 

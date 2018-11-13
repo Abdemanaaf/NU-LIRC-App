@@ -106,16 +106,43 @@
     <string name="high_wire">High Wire</string>
     <string name="ias">IAS</string>
     <string name="ijcms">IJCMS</string>
-    <string name="intech">INTECH</string>
     <string name="journals_seek">Journals Seek</string>
     <string name="muse_india">Muse India</string>
-    <string name="ncert">NCERT Journals</string>
+    <string name="ncert">NCERT</string>
     <string name="oalib">OALIB</string>
     <string name="online_journals">Online Journals</string>
     <string name="nopr">NOPR</string>
     <string name="springer_open">Springer Open</string>
     <string name="south_asia">South Asia Archive</string>
     <string name="world_sci">World Scientific</string>
-    <string name="title_activity_issue_return">IssueReturn</string>
+    <string name="title_activity_issue_return">Issue Return</string>
+    
+    <string name="collections_archive">Collections Archive</string>
+    <string name="college_textbooks">College Textbooks</string>
+    <string name="doab">DOAB</string>
+    <string name="e_books_directory">E-Books Directory</string>
+    <string name="google_books">Google Books</string>
+    <string name="google_scholar">Google Scholar</string>
+    <string name="google_patents">Google Patents</string>
+    <string name="gutenberg">Gutenberg</string>
+    <string name="intech_books">INTECH Books</string>
+    <string name="oapen">OAPEN</string>
+    <string name="okr">OKR</string>
+    <string name="open_edu_resources">Open Education Resources</string>
+    <string name="open_textbooks">Open Textbooks</string>
+    <string name="open_lib">Open Library</string>
+    <string name="student_pirgs">Student Pirgs</string>
+    <string name="world_e_books">World E-Books Library</string>
+
+    <string name="plagiarism">Plagiarism</string>
+    <string name="checker_detection">Plagiarism Checker and Detection</string>
+    
+    <string name="shodhganga">Shodhganga</string>
+    <string name="shodhgangotri">ShodhGangotri</string>
+    <string name="online_digital">Online Digital Theses</string>
+    <string name="open_access_theses">Open Access Theses and Dissertations</string>
+    <string name="digital_repos">Digital Repository of Theses and Dissertations</string>
+    <string name="int_theses">International Theses</string>
+    <string name="dart_europe">DART-Europe E-Theses Portal</string>
 
 </resources>
