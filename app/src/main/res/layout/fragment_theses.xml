@@ -13,76 +13,50 @@
         android:orientation="vertical">
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/to_website"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:textStyle="italic"/>
+
+        <TextView
             android:id="@+id/shodhganga"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="8dp"
-            android:fontFamily="sans-serif-light"
             android:text="@string/shodhganga"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/shodhgangotri"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="8dp"
-            android:fontFamily="sans-serif-light"
-            android:text="@string/shodhgangotri"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/onlineDigital"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="8dp"
-            android:fontFamily="sans-serif-light"
-            android:text="@string/online_digital"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/openAccessTheses"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textAlignment="center"
-            android:layout_margin="8dp"
-            android:fontFamily="sans-serif-light"
-            android:text="@string/open_access_theses"
-            android:textSize="24sp" />
+            style="@style/text_views_links_fragment" />
 
         <TextView
             android:id="@+id/digitalRepos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:textAlignment="center"
-            android:layout_margin="8dp"
-            android:fontFamily="sans-serif-light"
             android:text="@string/digital_repos"
-            android:textSize="24sp" />
+            style="@style/text_views_links_fragment" />
+
+        <TextView
+            android:id="@+id/shodhgangotri"
+            android:text="@string/shodhgangotri"
+            style="@style/text_views_links_fragment" />
+
+        <TextView
+            android:id="@+id/onlineDigital"
+            android:text="@string/online_digital"
+            style="@style/text_views_links_fragment" />
+
+        <TextView
+            android:id="@+id/openAccessTheses"
+            android:textAlignment="center"
+            android:text="@string/open_access_theses"
+            style="@style/text_views_links_fragment" />
 
         <TextView
             android:id="@+id/intTheses"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="4dp"
-            android:fontFamily="sans-serif-light"
             android:text="@string/int_theses"
-            android:textSize="24sp" />
+            style="@style/text_views_links_fragment" />
 
         <TextView
             android:id="@+id/dartEurope"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="8dp"
-            android:fontFamily="sans-serif-light"
             android:text="@string/dart_europe"
-            android:textSize="24sp" />
+            style="@style/text_views_links_fragment" />
 
     </LinearLayout>
 

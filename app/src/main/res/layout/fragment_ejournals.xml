@@ -13,105 +13,63 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/academicJournals"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/to_website"
             android:layout_gravity="center"
-            android:layout_margin="4dp"
-            android:fontFamily="sans-serif-light"
-            android:text="@string/academic_journals"
-            android:textSize="24sp" />
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:textStyle="italic"/>
 
+        <TextView
+            android:id="@+id/academicJournals"
+            android:text="@string/academic_journals"
+            style="@style/text_views_links_fragment" />
 
         <TextView
             android:id="@+id/aircc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="4dp"
-            android:fontFamily="sans-serif-light"
             android:text="@string/aircc"
-            android:textSize="24sp" />
+            style="@style/text_views_links_fragment" />
 
         <TextView
             android:id="@+id/nopr"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="4dp"
-            android:fontFamily="sans-serif-light"
             android:text="@string/nopr"
-            android:textSize="24sp" />
+            style="@style/text_views_links_fragment" />
 
         <TextView
             android:id="@+id/journalsSeek"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="4dp"
-            android:fontFamily="sans-serif-light"
             android:text="@string/journals_seek"
-            android:textSize="24sp" />
+            style="@style/text_views_links_fragment" />
 
         <TextView
             android:id="@+id/ncert"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="4dp"
-            android:fontFamily="sans-serif-light"
             android:text="@string/ncert"
-            android:textSize="24sp" />
+            style="@style/text_views_links_fragment" />
 
         <TextView
             android:id="@+id/eJournalLink"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="4dp"
-            android:fontFamily="sans-serif-light"
             android:text="@string/e_journals"
-            android:textSize="24sp" />
+            style="@style/text_views_links_fragment" />
 
         <TextView
             android:id="@+id/onlineJournals"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="4dp"
-            android:fontFamily="sans-serif-light"
             android:text="@string/online_journals"
-            android:textSize="24sp" />
+            style="@style/text_views_links_fragment" />
 
         <TextView
             android:id="@+id/ias"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="4dp"
-            android:fontFamily="sans-serif-light"
             android:text="@string/ias"
-            android:textSize="24sp" />
+            style="@style/text_views_links_fragment" />
 
         <TextView
             android:id="@+id/worldSci"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="4dp"
-            android:fontFamily="sans-serif-light"
             android:text="@string/world_sci"
-            android:textSize="24sp" />
+            style="@style/text_views_links_fragment" />
 
         <TextView
             android:id="@+id/southAsia"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="4dp"
-            android:fontFamily="sans-serif-light"
             android:text="@string/south_asia"
-            android:textSize="24sp" />
+            style="@style/text_views_links_fragment" />
 
     </LinearLayout>
 

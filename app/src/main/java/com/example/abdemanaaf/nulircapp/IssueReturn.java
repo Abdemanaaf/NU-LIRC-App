@@ -1,5 +1,6 @@
 package com.example.abdemanaaf.nulircapp;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -26,12 +27,16 @@ public class IssueReturn extends AppCompatActivity
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
+    private ProgressDialog mProgress;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_issue_return);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        mProgress = new ProgressDialog(this);
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -63,13 +68,21 @@ public class IssueReturn extends AppCompatActivity
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
         webView.loadUrl("http://library.niituniversity.in/");
+
     }
 
     private class MyBrowser extends WebViewClient {
+
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
             view.loadUrl(url);
             return true;
+        }
+
+        public void onPageFinished(WebView view, String url) {
+            if (mProgress.isShowing()) {
+                mProgress.dismiss();
+            }
         }
     }
 
@@ -77,6 +90,9 @@ public class IssueReturn extends AppCompatActivity
     protected void onStart() {
         super.onStart();
         mAuth.addAuthStateListener(mAuthListener);
+
+        mProgress.setMessage("Loading...");
+        mProgress.show();
     }
 
     @Override

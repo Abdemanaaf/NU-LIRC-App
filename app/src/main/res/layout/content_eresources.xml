@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F1D6D0"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".EResourcesActivity"
     tools:showIn="@layout/app_bar_eresources">
@@ -11,104 +12,77 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="16dp">
+        android:layout_margin="16dp"
+        android:orientation="vertical">
 
         <ToggleButton
             android:id="@+id/ref"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="32dp"
-            android:fontFamily="sans-serif-light"
+            style="@style/toggle_button"
+            android:layout_marginTop="4dp"
             android:textOff="@string/ref"
-            android:textOn="@string/ref"
-            android:textSize="24sp" />
+            android:textOn="@string/ref" />
 
         <TextView
             android:id="@+id/refText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            style="@style/toggle_text_views" />
 
         <ToggleButton
             android:id="@+id/libLoan"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            style="@style/toggle_button"
             android:layout_marginTop="16dp"
-            android:fontFamily="sans-serif-light"
-            android:textOn="@string/lib_loan"
             android:textOff="@string/lib_loan"
-            android:textSize="24sp" />
+            android:textOn="@string/lib_loan" />
 
         <TextView
             android:id="@+id/libLoanText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            style="@style/toggle_text_views" />
 
         <ToggleButton
             android:id="@+id/reproFac"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            style="@style/toggle_button"
             android:layout_marginTop="16dp"
-            android:fontFamily="sans-serif-light"
-            android:textOn="@string/repro_fac"
             android:textOff="@string/repro_fac"
-            android:textSize="24sp" />
+            android:textOn="@string/repro_fac" />
 
         <TextView
             android:id="@+id/reproFacText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            style="@style/toggle_text_views" />
 
         <ToggleButton
             android:id="@+id/userOrien"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            style="@style/toggle_button"
             android:layout_marginTop="16dp"
-            android:fontFamily="sans-serif-light"
-            android:textOn="@string/user_orientation"
             android:textOff="@string/user_orientation"
-            android:textSize="24sp" />
+            android:textOn="@string/user_orientation"
+            android:textSize="21sp" />
 
         <TextView
             android:id="@+id/userOrienText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            style="@style/toggle_text_views" />
 
         <ToggleButton
             android:id="@+id/knowledge"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            style="@style/toggle_button"
             android:layout_marginTop="16dp"
-            android:fontFamily="sans-serif-light"
-            android:textOn="@string/knowledge"
             android:textOff="@string/knowledge"
-            android:textSize="24sp" />
+            android:textOn="@string/knowledge"
+            android:textSize="21sp" />
 
         <TextView
             android:id="@+id/knowledgeText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            style="@style/toggle_text_views" />
 
         <ToggleButton
             android:id="@+id/sugamya"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            style="@style/toggle_button"
             android:layout_marginTop="16dp"
-            android:fontFamily="sans-serif-light"
-            android:textOn="@string/sugamya"
             android:textOff="@string/sugamya"
-            android:textSize="24sp" />
+            android:textOn="@string/sugamya" />
 
         <TextView
             android:id="@+id/sugamyaText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            style="@style/toggle_text_views"
+            android:layout_marginBottom="8dp"/>
 
     </LinearLayout>
 
