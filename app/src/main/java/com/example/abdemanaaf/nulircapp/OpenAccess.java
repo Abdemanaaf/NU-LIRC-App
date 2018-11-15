@@ -1,6 +1,7 @@
 package com.example.abdemanaaf.nulircapp;
 
 import android.content.Intent;
+import android.graphics.Path;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -17,14 +18,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class OpenAccess extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private String userId;
+
+    private TextView mUsername;
+    private TextView mEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +53,10 @@ public class OpenAccess extends AppCompatActivity
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        View header = navigationView.getHeaderView(0);
+        mUsername = header.findViewById(R.id.nav_username);
+        mEmail = header.findViewById(R.id.nav_email);
 
         TabLayout tabLayout = findViewById(R.id.openAccessTabs);
         ViewPager viewPager = findViewById(R.id.viewPager);
@@ -62,6 +78,39 @@ public class OpenAccess extends AppCompatActivity
 
             }
         };
+
+        DatabaseReference mDatabaseReference = FirebaseDatabase.getInstance().getReference();
+        FirebaseUser user = mAuth.getCurrentUser();
+
+        userId = user.getUid();
+
+        mDatabaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                showData(dataSnapshot);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    private void showData(DataSnapshot dataSnapshot) {
+
+        for (DataSnapshot ds : dataSnapshot.getChildren()) {
+
+            UserInformation userInfo = new UserInformation();
+            userInfo.setName(ds.child(userId).getValue(UserInformation.class).getName());
+            userInfo.setEmail(ds.child(userId).getValue(UserInformation.class).getEmail());
+
+            String name = userInfo.getName();
+            String email = userInfo.getEmail();
+
+            mUsername.setText(name);
+            mEmail.setText(email);
+        }
     }
 
     @Override
@@ -101,6 +150,10 @@ public class OpenAccess extends AppCompatActivity
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
+        if (id == R.id.home) {
+            startActivity(new Intent(OpenAccess.this, QuickLinks.class));
+            finish();
+        }
         if (id == R.id.navE_Resources) {
             startActivity(new Intent(OpenAccess.this, EResourcesActivity.class));
             finish();

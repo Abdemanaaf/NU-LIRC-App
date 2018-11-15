@@ -15,14 +15,36 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.io.InputStream;
 
 public class ServicesActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private TextView refText;
+    private TextView libLoanText;
+    private TextView reproFacText;
+    private TextView userOrienText;
+    private TextView knowledgeText;
+    private TextView sugamyaText;
+
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private String userId;
+
+    private TextView mUsername;
+    private TextView mEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +62,24 @@ public class ServicesActivity extends AppCompatActivity
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        View header = navigationView.getHeaderView(0);
+        mUsername = header.findViewById(R.id.nav_username);
+        mEmail = header.findViewById(R.id.nav_email);
+
+        refText = findViewById(R.id.refText);
+        libLoanText = findViewById(R.id.libLoanText);
+        reproFacText = findViewById(R.id.reproFacText);
+        userOrienText = findViewById(R.id.userOrienText);
+        knowledgeText = findViewById(R.id.knowledgeText);
+        sugamyaText = findViewById(R.id.sugamyaText);
+
+        final ToggleButton ref = findViewById(R.id.ref);
+        final ToggleButton libLoan = findViewById(R.id.libLoan);
+        final ToggleButton reproFac = findViewById(R.id.reproFac);
+        final ToggleButton userOrien = findViewById(R.id.userOrien);
+        final ToggleButton knowledge = findViewById(R.id.knowledge);
+        final ToggleButton sugamya = findViewById(R.id.sugamya);
+
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -53,6 +93,126 @@ public class ServicesActivity extends AppCompatActivity
 
             }
         };
+
+        DatabaseReference mDatabaseReference = FirebaseDatabase.getInstance().getReference();
+        FirebaseUser user = mAuth.getCurrentUser();
+
+        userId = user.getUid();
+
+        mDatabaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                showData(dataSnapshot);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        ref.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean isChecked = ref.isChecked();
+                if (isChecked)
+                    getData("reference_data", refText);
+                else
+                    refText.setText("");
+            }
+        });
+
+        libLoan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean isChecked = libLoan.isChecked();
+                if (isChecked)
+                    getData("inter_library_loan_data", libLoanText);
+                else
+                    libLoanText.setText("");
+            }
+        });
+
+        reproFac.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean isChecked = reproFac.isChecked();
+                if (isChecked)
+                    getData("reprographic_facilities_data", reproFacText);
+                else
+                    reproFacText.setText("");
+            }
+        });
+
+        userOrien.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean isChecked = userOrien.isChecked();
+                if (isChecked)
+                    getData("users_orientation_programmes_data", userOrienText);
+                else
+                    userOrienText.setText("");
+            }
+        });
+
+        knowledge.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean isChecked = knowledge.isChecked();
+                if (isChecked)
+                    getData("knowledge_dissemination_cell_data", knowledgeText);
+                else
+                    knowledgeText.setText("");
+            }
+        });
+
+        sugamya.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean isChecked = sugamya.isChecked();
+                if (isChecked)
+                    getData("sugamya_pustakalaya", sugamyaText);
+                else
+                    sugamyaText.setText("");
+            }
+        });
+    }
+
+    private void showData(DataSnapshot dataSnapshot) {
+
+        for (DataSnapshot ds : dataSnapshot.getChildren()) {
+
+            UserInformation userInfo = new UserInformation();
+            userInfo.setName(ds.child(userId).getValue(UserInformation.class).getName());
+            userInfo.setEmail(ds.child(userId).getValue(UserInformation.class).getEmail());
+
+            String name = userInfo.getName();
+            String email = userInfo.getEmail();
+
+            mUsername.setText(name);
+            mEmail.setText(email);
+        }
+    }
+
+    private void getData(String filename, TextView textView) {
+
+        String text = "";
+        try {
+
+            InputStream inputStream = getAssets().open(filename);
+            int size = inputStream.available();
+            byte[] buffer = new byte[size];
+
+            inputStream.read(buffer);
+            inputStream.close();
+
+            text = new String (buffer);
+
+        } catch (Exception e) {
+            Toast.makeText(this, "Error Extracting Data", Toast.LENGTH_SHORT).show();
+        }
+
+        textView.setText(text);
     }
 
     @Override
@@ -92,6 +252,10 @@ public class ServicesActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
+        if (id == R.id.home) {
+            startActivity(new Intent(ServicesActivity.this, QuickLinks.class));
+            finish();
+        }
         if (id == R.id.navE_Resources) {
             startActivity(new Intent(ServicesActivity.this, EResourcesActivity.class));
             finish();

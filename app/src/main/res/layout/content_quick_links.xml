@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F1D6D0"
+    android:background="#ECF0F1"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".QuickLinks"
     tools:showIn="@layout/app_bar_quick_links">
@@ -17,23 +17,14 @@
 
         <TextView
             android:id="@+id/issueReturn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="16dp"
-            android:fontFamily="sans-serif-light"
             android:text="@string/issue_return"
-            android:textSize="24sp" />
+            style="@style/text_views_quicklinks" />
 
         <TextView
             android:id="@+id/lircTiming"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="16dp"
-            android:fontFamily="sans-serif-light"
             android:text="@string/lirc_timings"
-            android:textSize="24sp" />
+            style="@style/text_views_quicklinks"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -44,9 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
                 android:text="@string/lib_time"
                 android:textSize="22sp" />
 
@@ -69,9 +58,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
                 android:textSize="16sp" />
 
         </LinearLayout>
@@ -89,9 +76,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
                 android:textSize="16sp" />
 
         </LinearLayout>
@@ -109,9 +94,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
                 android:textSize="16sp" />
 
         </LinearLayout>
@@ -128,9 +111,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
                 android:textSize="20sp"
                 android:text="@string/extended_time"/>
 
@@ -155,9 +136,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
                 android:textSize="16sp" />
 
         </LinearLayout>
@@ -175,9 +154,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
                 android:textSize="16sp" />
 
         </LinearLayout>
@@ -194,9 +171,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
                 android:textSize="20sp"
                 android:text="@string/circulation_time"/>
 
@@ -221,9 +196,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
                 android:textSize="16sp" />
 
         </LinearLayout>
@@ -241,9 +214,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
                 android:textSize="16sp" />
 
         </LinearLayout>
@@ -261,32 +232,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
                 android:textSize="16sp" />
 
         </LinearLayout>
 
         <TextView
             android:id="@+id/contactLib"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="16dp"
-            android:fontFamily="sans-serif-light"
             android:text="@string/contact_lib"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/newArrivals"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="16dp"
-            android:fontFamily="sans-serif-light"
-            android:text="@string/new_arrivals"
-            android:textSize="24sp" />
+            style="@style/text_views_quicklinks" />
 
     </LinearLayout>
 

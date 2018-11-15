@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F1D6D0"
+    android:background="#ECF0F1"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".AboutActivity"
     tools:showIn="@layout/app_bar_about">
@@ -22,9 +22,15 @@
             android:textOff="@string/intro"
             android:textOn="@string/intro" />
 
-        <TextView
-            android:id="@+id/introText"
-            style="@style/toggle_text_views" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <WebView
+                android:id="@+id/introText"
+                style="@style/toggle_text_views" />
+
+        </LinearLayout>
 
         <ToggleButton
             android:id="@+id/visionMission"
@@ -33,9 +39,15 @@
             android:textOff="@string/vision_mission"
             android:textOn="@string/vision_mission" />
 
-        <TextView
-            android:id="@+id/visionMissionText"
-            style="@style/toggle_text_views" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <WebView
+                android:id="@+id/visionMissionText"
+                style="@style/toggle_text_views" />
+
+        </LinearLayout>
 
         <ToggleButton
             android:id="@+id/userFacilities"
@@ -44,9 +56,15 @@
             android:textOff="@string/user_facilities"
             android:textOn="@string/user_facilities" />
 
-        <TextView
-            android:id="@+id/userFacilitiesText"
-            style="@style/toggle_text_views" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <WebView
+                android:id="@+id/userFacilitiesText"
+                style="@style/toggle_text_views" />
+
+        </LinearLayout>
 
         <ToggleButton
             android:id="@+id/nuAtGlance"
@@ -55,9 +73,15 @@
             android:textOff="@string/nu_at_glance"
             android:textOn="@string/nu_at_glance" />
 
-        <TextView
-            android:id="@+id/nuAtGlanceText"
-            style="@style/toggle_text_views" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <WebView
+                android:id="@+id/nuAtGlanceText"
+                style="@style/toggle_text_views" />
+
+        </LinearLayout>
 
         <ToggleButton
             android:id="@+id/advisory"
@@ -66,9 +90,15 @@
             android:textOff="@string/advisory"
             android:textOn="@string/advisory" />
 
-        <TextView
-            android:id="@+id/advisoryText"
-            style="@style/toggle_text_views" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <WebView
+                android:id="@+id/advisoryText"
+                style="@style/toggle_text_views" />
+
+        </LinearLayout>
 
         <ToggleButton
             android:id="@+id/collection"
@@ -77,9 +107,15 @@
             android:textOff="@string/collection"
             android:textOn="@string/collection" />
 
-        <TextView
-            android:id="@+id/collectionText"
-            style="@style/toggle_text_views" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <WebView
+                android:id="@+id/collectionText"
+                style="@style/toggle_text_views" />
+
+        </LinearLayout>
 
         <ToggleButton
             android:id="@+id/generalRules"
@@ -88,10 +124,16 @@
             android:textOff="@string/general_rules"
             android:textOn="@string/general_rules" />
 
-        <TextView
-            android:id="@+id/generalRulesText"
-            style="@style/toggle_text_views"
-            android:layout_marginBottom="8dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <WebView
+                android:id="@+id/generalRulesText"
+                style="@style/toggle_text_views"
+                android:layout_marginBottom="8dp" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

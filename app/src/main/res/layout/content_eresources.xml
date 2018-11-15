@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F1D6D0"
+    android:background="#ECF0F1"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".EResourcesActivity"
     tools:showIn="@layout/app_bar_eresources">
@@ -12,77 +12,68 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_gravity="center"
+        android:layout_margin="8dp"
         android:orientation="vertical">
 
-        <ToggleButton
-            android:id="@+id/ref"
-            style="@style/toggle_button"
-            android:layout_marginTop="4dp"
-            android:textOff="@string/ref"
-            android:textOn="@string/ref" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/to_website"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:textStyle="italic"/>
 
         <TextView
-            android:id="@+id/refText"
-            style="@style/toggle_text_views" />
-
-        <ToggleButton
-            android:id="@+id/libLoan"
-            style="@style/toggle_button"
-            android:layout_marginTop="16dp"
-            android:textOff="@string/lib_loan"
-            android:textOn="@string/lib_loan" />
+            android:id="@+id/accessEng"
+            android:text="@string/access_eng"
+            style="@style/text_views_links_fragment" />
 
         <TextView
-            android:id="@+id/libLoanText"
-            style="@style/toggle_text_views" />
-
-        <ToggleButton
-            android:id="@+id/reproFac"
-            style="@style/toggle_button"
-            android:layout_marginTop="16dp"
-            android:textOff="@string/repro_fac"
-            android:textOn="@string/repro_fac" />
+            android:id="@+id/acm"
+            android:text="@string/acm"
+            style="@style/text_views_links_fragment" />
 
         <TextView
-            android:id="@+id/reproFacText"
-            style="@style/toggle_text_views" />
-
-        <ToggleButton
-            android:id="@+id/userOrien"
-            style="@style/toggle_button"
-            android:layout_marginTop="16dp"
-            android:textOff="@string/user_orientation"
-            android:textOn="@string/user_orientation"
-            android:textSize="21sp" />
+            android:id="@+id/capitaline"
+            android:text="@string/capitaline"
+            style="@style/text_views_links_fragment" />
 
         <TextView
-            android:id="@+id/userOrienText"
-            style="@style/toggle_text_views" />
-
-        <ToggleButton
-            android:id="@+id/knowledge"
-            style="@style/toggle_button"
-            android:layout_marginTop="16dp"
-            android:textOff="@string/knowledge"
-            android:textOn="@string/knowledge"
-            android:textSize="21sp" />
+            android:id="@+id/prowess"
+            android:text="@string/prowess"
+            style="@style/text_views_links_fragment" />
 
         <TextView
-            android:id="@+id/knowledgeText"
-            style="@style/toggle_text_views" />
-
-        <ToggleButton
-            android:id="@+id/sugamya"
-            style="@style/toggle_button"
-            android:layout_marginTop="16dp"
-            android:textOff="@string/sugamya"
-            android:textOn="@string/sugamya" />
+            android:id="@+id/icra"
+            android:text="@string/icra"
+            style="@style/text_views_links_fragment" />
 
         <TextView
-            android:id="@+id/sugamyaText"
-            style="@style/toggle_text_views"
-            android:layout_marginBottom="8dp"/>
+            android:id="@+id/ieee"
+            android:text="@string/ieee"
+            style="@style/text_views_links_fragment" />
+
+        <TextView
+            android:id="@+id/jstor"
+            android:text="@string/jstor"
+            style="@style/text_views_links_fragment" />
+
+        <TextView
+            android:id="@+id/jccc"
+            android:text="@string/jccc"
+            style="@style/text_views_links_fragment" />
+
+        <TextView
+            android:id="@+id/mathSciNet"
+            android:text="@string/math_sci_net"
+            style="@style/text_views_links_fragment" />
+
+        <TextView
+            android:id="@+id/scienceDirect"
+            android:text="@string/science_direct"
+            style="@style/text_views_links_fragment" />
 
     </LinearLayout>
 

@@ -4,9 +4,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -15,27 +12,44 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.webkit.WebView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.google.firebase.auth.FirebaseAuth;
-
-import java.io.InputStream;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class AboutActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private TextView introText;
-    private TextView visionMissionText;
-    private TextView userFacilitiesText;
-    private TextView nuAtGlanceText;
-    private TextView advisoryText;
-    private TextView collectionText;
-    private TextView generalRulesText;
+    private WebView introText;
+    private WebView visionMissionText;
+    private WebView userFacilitiesText;
+    private WebView nuAtGlanceText;
+    private WebView advisoryText;
+    private WebView collectionText;
+    private WebView generalRulesText;
+
+    private ToggleButton intro;
+    private ToggleButton visionMission;
+    private ToggleButton userFacilities;
+    private ToggleButton nuAtGlance;
+    private ToggleButton advisory;
+    private ToggleButton collection;
+    private ToggleButton generalRules;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private String userId;
+
+    private TextView mUsername;
+    private TextView mEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +67,10 @@ public class AboutActivity extends AppCompatActivity
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        View header = navigationView.getHeaderView(0);
+        mUsername = header.findViewById(R.id.nav_username);
+        mEmail = header.findViewById(R.id.nav_email);
+
         introText = findViewById(R.id.introText);
         visionMissionText = findViewById(R.id.visionMissionText);
         userFacilitiesText = findViewById(R.id.userFacilitiesText);
@@ -61,13 +79,13 @@ public class AboutActivity extends AppCompatActivity
         collectionText = findViewById(R.id.collectionText);
         generalRulesText = findViewById(R.id.generalRulesText);
 
-        final ToggleButton intro = findViewById(R.id.intro);
-        final ToggleButton visionMission = findViewById(R.id.visionMission);
-        final ToggleButton userFacilities = findViewById(R.id.userFacilities);
-        final ToggleButton nuAtGlance = findViewById(R.id.nuAtGlance);
-        final ToggleButton advisory = findViewById(R.id.advisory);
-        final ToggleButton collection = findViewById(R.id.collection);
-        final ToggleButton generalRules = findViewById(R.id.generalRules);
+        intro = findViewById(R.id.intro);
+        visionMission = findViewById(R.id.visionMission);
+        userFacilities = findViewById(R.id.userFacilities);
+        nuAtGlance = findViewById(R.id.nuAtGlance);
+        advisory = findViewById(R.id.advisory);
+        collection = findViewById(R.id.collection);
+        generalRules = findViewById(R.id.generalRules);
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -83,14 +101,31 @@ public class AboutActivity extends AppCompatActivity
             }
         };
 
+        DatabaseReference mDatabaseReference = FirebaseDatabase.getInstance().getReference();
+        FirebaseUser user = mAuth.getCurrentUser();
+
+        userId = user.getUid();
+
+        mDatabaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                showData(dataSnapshot);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
         intro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 boolean isChecked = intro.isChecked();
                 if (isChecked)
-                    getData("introduction_data", introText);
+                    introText.loadUrl("file:///android_asset/introduction_data.html");
                 else
-                    introText.setText("");
+                    introText.loadUrl("");
             }
         });
 
@@ -99,9 +134,9 @@ public class AboutActivity extends AppCompatActivity
             public void onClick(View v) {
                 boolean isChecked = visionMission.isChecked();
                 if (isChecked)
-                    getData("vision_mission_data", visionMissionText);
+                    visionMissionText.loadUrl("file:///android_asset/introduction_data.html");
                 else
-                    visionMissionText.setText("");
+                    visionMissionText.loadUrl("");
             }
         });
 
@@ -110,9 +145,9 @@ public class AboutActivity extends AppCompatActivity
             public void onClick(View v) {
                 boolean isChecked = userFacilities.isChecked();
                 if (isChecked)
-                    getData("user_facilities_data", userFacilitiesText);
+                    userFacilitiesText.loadUrl("file:///android_asset/introduction_data.html");
                 else
-                    userFacilitiesText.setText("");
+                    userFacilitiesText.loadUrl("");
             }
         });
 
@@ -121,9 +156,9 @@ public class AboutActivity extends AppCompatActivity
             public void onClick(View v) {
                 boolean isChecked = nuAtGlance.isChecked();
                 if (isChecked)
-                    getData("nu_at_glance_data", nuAtGlanceText);
+                    nuAtGlanceText.loadUrl("file:///android_asset/introduction_data.html");
                 else
-                    nuAtGlanceText.setText("");
+                    nuAtGlanceText.loadUrl("");
             }
         });
 
@@ -132,9 +167,9 @@ public class AboutActivity extends AppCompatActivity
             public void onClick(View v) {
                 boolean isChecked = advisory.isChecked();
                 if (isChecked)
-                    getData("advisory_data", advisoryText);
+                    advisoryText.loadUrl("file:///android_asset/introduction_data.html");
                 else
-                    advisoryText.setText("");
+                    advisoryText.loadUrl("");
             }
         });
 
@@ -143,9 +178,9 @@ public class AboutActivity extends AppCompatActivity
             public void onClick(View v) {
                 boolean isChecked = collection.isChecked();
                 if (isChecked)
-                    getData("collection_data", collectionText);
+                    collectionText.loadUrl("file:///android_asset/introduction_data.html");
                 else
-                    collectionText.setText("");
+                    collectionText.loadUrl("");
             }
         });
 
@@ -154,32 +189,27 @@ public class AboutActivity extends AppCompatActivity
             public void onClick(View v) {
                 boolean isChecked = generalRules.isChecked();
                 if (isChecked)
-                    getData("general_rules_data", generalRulesText);
+                    generalRulesText.loadUrl("file:///android_asset/introduction_data.html");
                 else
-                    generalRulesText.setText("");
+                    generalRulesText.loadUrl("");
             }
         });
     }
 
-    private void getData(String filename, TextView textView) {
+    private void showData(DataSnapshot dataSnapshot) {
 
-        String text = "";
-        try {
+        for (DataSnapshot ds : dataSnapshot.getChildren()) {
 
-            InputStream inputStream = getAssets().open(filename);
-            int size = inputStream.available();
-            byte[] buffer = new byte[size];
+            UserInformation userInfo = new UserInformation();
+            userInfo.setName(ds.child(userId).getValue(UserInformation.class).getName());
+            userInfo.setEmail(ds.child(userId).getValue(UserInformation.class).getEmail());
 
-            inputStream.read(buffer);
-            inputStream.close();
+            String name = userInfo.getName();
+            String email = userInfo.getEmail();
 
-            text = new String (buffer);
-
-        } catch (Exception e) {
-            Toast.makeText(this, "Error Extracting Data", Toast.LENGTH_SHORT).show();
+            mUsername.setText(name);
+            mEmail.setText(email);
         }
-
-        textView.setText(text);
     }
 
     @Override
@@ -220,6 +250,10 @@ public class AboutActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
+        if (id == R.id.home) {
+            startActivity(new Intent(AboutActivity.this, QuickLinks.class));
+            finish();
+        }
         if (id == R.id.navE_Resources) {
             startActivity(new Intent(AboutActivity.this, EResourcesActivity.class));
             finish();
