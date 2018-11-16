@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ECF0F1"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".AboutActivity"
     tools:showIn="@layout/app_bar_about">
@@ -11,122 +12,128 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="16dp">
+        android:layout_margin="16dp"
+        android:orientation="vertical">
 
         <ToggleButton
             android:id="@+id/intro"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="32dp"
-            android:fontFamily="sans-serif-light"
+            style="@style/toggle_button"
+            android:layout_marginTop="4dp"
             android:textOff="@string/intro"
-            android:textOn="@string/intro"
-            android:textSize="24sp" />
+            android:textOn="@string/intro" />
 
-        <TextView
-            android:id="@+id/introText"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="8dp" />
+            android:layout_height="match_parent">
+
+            <WebView
+                android:id="@+id/introText"
+                style="@style/toggle_text_views" />
+
+        </LinearLayout>
 
         <ToggleButton
             android:id="@+id/visionMission"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            style="@style/toggle_button"
             android:layout_marginTop="16dp"
-            android:fontFamily="sans-serif-light"
-            android:textOn="@string/vision_mission"
             android:textOff="@string/vision_mission"
-            android:textSize="24sp" />
+            android:textOn="@string/vision_mission" />
 
-        <TextView
-            android:id="@+id/visionMissionText"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent">
+
+            <WebView
+                android:id="@+id/visionMissionText"
+                style="@style/toggle_text_views" />
+
+        </LinearLayout>
 
         <ToggleButton
             android:id="@+id/userFacilities"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            style="@style/toggle_button"
             android:layout_marginTop="16dp"
-            android:fontFamily="sans-serif-light"
-            android:textOn="@string/user_facilities"
             android:textOff="@string/user_facilities"
-            android:textSize="24sp" />
+            android:textOn="@string/user_facilities" />
 
-        <TextView
-            android:id="@+id/userFacilitiesText"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent">
+
+            <WebView
+                android:id="@+id/userFacilitiesText"
+                style="@style/toggle_text_views" />
+
+        </LinearLayout>
 
         <ToggleButton
             android:id="@+id/nuAtGlance"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            style="@style/toggle_button"
             android:layout_marginTop="16dp"
-            android:fontFamily="sans-serif-light"
-            android:textOn="@string/nu_at_glance"
             android:textOff="@string/nu_at_glance"
-            android:textSize="24sp" />
+            android:textOn="@string/nu_at_glance" />
 
-        <TextView
-            android:id="@+id/nuAtGlanceText"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent">
+
+            <WebView
+                android:id="@+id/nuAtGlanceText"
+                style="@style/toggle_text_views" />
+
+        </LinearLayout>
 
         <ToggleButton
             android:id="@+id/advisory"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            style="@style/toggle_button"
             android:layout_marginTop="16dp"
-            android:fontFamily="sans-serif-light"
-            android:textOn="@string/advisory"
             android:textOff="@string/advisory"
-            android:textSize="24sp" />
+            android:textOn="@string/advisory" />
 
-        <TextView
-            android:id="@+id/advisoryText"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent">
+
+            <WebView
+                android:id="@+id/advisoryText"
+                style="@style/toggle_text_views" />
+
+        </LinearLayout>
 
         <ToggleButton
             android:id="@+id/collection"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            style="@style/toggle_button"
             android:layout_marginTop="16dp"
-            android:fontFamily="sans-serif-light"
-            android:textOn="@string/collection"
             android:textOff="@string/collection"
-            android:textSize="24sp" />
+            android:textOn="@string/collection" />
 
-        <TextView
-            android:id="@+id/collectionText"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent">
+
+            <WebView
+                android:id="@+id/collectionText"
+                style="@style/toggle_text_views" />
+
+        </LinearLayout>
 
         <ToggleButton
             android:id="@+id/generalRules"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            style="@style/toggle_button"
             android:layout_marginTop="16dp"
-            android:fontFamily="sans-serif-light"
-            android:textOn="@string/general_rules"
             android:textOff="@string/general_rules"
-            android:textSize="24sp" />
+            android:textOn="@string/general_rules" />
 
-        <TextView
-            android:id="@+id/generalRulesText"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"/>
+            android:layout_height="match_parent">
+
+            <WebView
+                android:id="@+id/generalRulesText"
+                style="@style/toggle_text_views"
+                android:layout_marginBottom="8dp" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

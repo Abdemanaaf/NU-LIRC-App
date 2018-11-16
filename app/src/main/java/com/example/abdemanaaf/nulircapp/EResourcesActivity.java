@@ -4,9 +4,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -15,26 +12,26 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.ToggleButton;
 
 import com.google.firebase.auth.FirebaseAuth;
-
-import java.io.InputStream;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class EResourcesActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private TextView refText;
-    private TextView libLoanText;
-    private TextView reproFacText;
-    private TextView userOrienText;
-    private TextView knowledgeText;
-    private TextView sugamyaText;
-
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private String userId;
+
+    private TextView mUsername;
+    private TextView mEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,19 +49,20 @@ public class EResourcesActivity extends AppCompatActivity
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        refText = findViewById(R.id.refText);
-        libLoanText = findViewById(R.id.libLoanText);
-        reproFacText = findViewById(R.id.reproFacText);
-        userOrienText = findViewById(R.id.userOrienText);
-        knowledgeText = findViewById(R.id.knowledgeText);
-        sugamyaText = findViewById(R.id.sugamyaText);
+        View header = navigationView.getHeaderView(0);
+        mUsername = header.findViewById(R.id.nav_username);
+        mEmail = header.findViewById(R.id.nav_email);
 
-        final ToggleButton ref = findViewById(R.id.ref);
-        final ToggleButton libLoan = findViewById(R.id.libLoan);
-        final ToggleButton reproFac = findViewById(R.id.reproFac);
-        final ToggleButton userOrien = findViewById(R.id.userOrien);
-        final ToggleButton knowledge = findViewById(R.id.knowledge);
-        final ToggleButton sugamya = findViewById(R.id.sugamya);
+        TextView accessEng = findViewById(R.id.accessEng);
+        TextView acm = findViewById(R.id.acm);
+        TextView capitaline = findViewById(R.id.capitaline);
+        TextView prowess = findViewById(R.id.prowess);
+        TextView icra = findViewById(R.id.icra);
+        TextView ieee = findViewById(R.id.ieee);
+        TextView jstor = findViewById(R.id.jstor);
+        TextView jccc = findViewById(R.id.jccc);
+        TextView mathSciNet = findViewById(R.id.mathSciNet);
+        TextView scienceDirect = findViewById(R.id.scienceDirect);
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -80,92 +78,138 @@ public class EResourcesActivity extends AppCompatActivity
             }
         };
 
-        ref.setOnClickListener(new View.OnClickListener() {
+        DatabaseReference mDatabaseReference = FirebaseDatabase.getInstance().getReference();
+        FirebaseUser user = mAuth.getCurrentUser();
+
+        userId = user.getUid();
+
+        mDatabaseReference.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onClick(View v) {
-                boolean isChecked = ref.isChecked();
-                if (isChecked)
-                    getData("reference_data", refText);
-                else
-                    refText.setText("");
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                showData(dataSnapshot);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
             }
         });
 
-        libLoan.setOnClickListener(new View.OnClickListener() {
+        accessEng.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean isChecked = libLoan.isChecked();
-                if (isChecked)
-                    getData("inter_library_loan_data", libLoanText);
-                else
-                    libLoanText.setText("");
+                String url = "https://www.accessengineeringlibrary.com/";
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                startActivity(intent);
             }
         });
 
-        reproFac.setOnClickListener(new View.OnClickListener() {
+        acm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean isChecked = reproFac.isChecked();
-                if (isChecked)
-                    getData("reprographic_facilities_data", reproFacText);
-                else
-                    reproFacText.setText("");
+                String url = "https://dl.acm.org/";
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                startActivity(intent);
             }
         });
 
-        userOrien.setOnClickListener(new View.OnClickListener() {
+        capitaline.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean isChecked = userOrien.isChecked();
-                if (isChecked)
-                    getData("users_orientation_programmes_data", userOrienText);
-                else
-                    userOrienText.setText("");
+                String url = "https://www.capitaline.com/";
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                startActivity(intent);
             }
         });
 
-        knowledge.setOnClickListener(new View.OnClickListener() {
+        prowess.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean isChecked = knowledge.isChecked();
-                if (isChecked)
-                    getData("knowledge_dissemination_cell_data", knowledgeText);
-                else
-                    knowledgeText.setText("");
+                String url = "https://prowessiq.cmie.com/";
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                startActivity(intent);
             }
         });
 
-        sugamya.setOnClickListener(new View.OnClickListener() {
+        icra.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean isChecked = sugamya.isChecked();
-                if (isChecked)
-                    getData("sugamya_pustakalaya", sugamyaText);
-                else
-                    sugamyaText.setText("");
+                String url = "https://www.icra.in/?ReportCategory=";
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                startActivity(intent);
+            }
+        });
+
+        ieee.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = "https://ieeexplore.ieee.org/Xplore/home.jsp";
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                startActivity(intent);
+            }
+        });
+
+        jstor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = "https://www.jstor.org/";
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                startActivity(intent);
+            }
+        });
+
+        jccc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = "https://jgateplus.com/search/";
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                startActivity(intent);
+            }
+        });
+
+        mathSciNet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = "https://mathscinet.ams.org/mathscinet/";
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                startActivity(intent);
+            }
+        });
+
+        scienceDirect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = "https://www.sciencedirect.com/browse/journals-and-books";
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                startActivity(intent);
             }
         });
     }
 
-    private void getData(String filename, TextView textView) {
+    private void showData(DataSnapshot dataSnapshot) {
 
-        String text = "";
-        try {
+        for (DataSnapshot ds : dataSnapshot.getChildren()) {
 
-            InputStream inputStream = getAssets().open(filename);
-            int size = inputStream.available();
-            byte[] buffer = new byte[size];
+            UserInformation userInfo = new UserInformation();
+            userInfo.setName(ds.child(userId).getValue(UserInformation.class).getName());
+            userInfo.setEmail(ds.child(userId).getValue(UserInformation.class).getEmail());
 
-            inputStream.read(buffer);
-            inputStream.close();
+            String name = userInfo.getName();
+            String email = userInfo.getEmail();
 
-            text = new String (buffer);
-
-        } catch (Exception e) {
-            Toast.makeText(this, "Error Extracting Data", Toast.LENGTH_SHORT).show();
+            mUsername.setText(name);
+            mEmail.setText(email);
         }
-
-        textView.setText(text);
     }
 
     @Override
@@ -205,6 +249,10 @@ public class EResourcesActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
+        if (id == R.id.home) {
+            startActivity(new Intent(EResourcesActivity.this, QuickLinks.class));
+            finish();
+        }
         if (id == R.id.navE_Resources) {
             startActivity(new Intent(EResourcesActivity.this, EResourcesActivity.class));
             finish();

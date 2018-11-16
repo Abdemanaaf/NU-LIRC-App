@@ -12,28 +12,25 @@
         android:layout_margin="8dp"
         android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/plagiarism"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="8dp"
-        android:fontFamily="sans-serif-light"
-        android:text="@string/plagiarism"
-        android:textSize="24sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/to_website"
+            android:textStyle="italic" />
 
-    <TextView
-        android:id="@+id/checkerDetection"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginStart="4dp"
-        android:fontFamily="sans-serif-light"
-        android:text="@string/checker_detection"
-        android:textSize="24sp" />
+        <TextView
+            android:id="@+id/plagiarism"
+            style="@style/text_views_links_fragment"
+            android:text="@string/plagiarism" />
+
+        <TextView
+            android:id="@+id/checkerDetection"
+            style="@style/text_views_links_fragment"
+            android:text="@string/checker_detection"
+            android:textAlignment="center" />
 
     </LinearLayout>
 

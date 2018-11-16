@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ECF0F1"
+    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".OnlineLearning"
     tools:showIn="@layout/app_bar_online_learning">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/to_website"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:textStyle="italic"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,64 +27,34 @@
 
         <TextView
             android:id="@+id/ePath"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="16dp"
-            android:fontFamily="sans-serif-light"
             android:text="@string/e_Path"
-            android:textSize="24sp"/>
+            style="@style/text_views_links" />
 
         <TextView
             android:id="@+id/swayam"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="16dp"
-            android:fontFamily="sans-serif-light"
             android:text="@string/swayam"
-            android:textSize="24sp"/>
+            style="@style/text_views_links"/>
 
         <TextView
             android:id="@+id/vidwan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="16dp"
-            android:fontFamily="sans-serif-light"
             android:text="@string/vidwan"
-            android:textSize="24sp"/>
+            style="@style/text_views_links"/>
 
         <TextView
             android:id="@+id/eAcharya"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="16dp"
-            android:fontFamily="sans-serif-light"
             android:text="@string/e_acharya"
-            android:textSize="24sp"/>
+            style="@style/text_views_links"/>
 
         <TextView
             android:id="@+id/nptel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="16dp"
-            android:fontFamily="sans-serif-light"
             android:text="@string/nptel"
-            android:textSize="24sp"/>
+            style="@style/text_views_links"/>
 
         <TextView
             android:id="@+id/vidyaMitra"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="16dp"
-            android:fontFamily="sans-serif-light"
             android:text="@string/vidya_mitra"
-            android:textSize="24sp"/>
+            style="@style/text_views_links"/>
 
     </LinearLayout>
 
-</ScrollView>
+</LinearLayout>

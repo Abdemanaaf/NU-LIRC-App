@@ -1,16 +1,41 @@
 <resources>
-    <string name="app_name">NU LIRC App</string>
-    <string name="email">Email</string>
-    <string name="colon"> : </string>
-    <string name="clickToContinue">Click to Continue</string>
-    <string name="login">Login</string>
-    <string name="password">Password</string>
-    <string name="cancel">Cancel</string>
-    <string name="enrollment">Enrollment Number</string>
-    <string name="show_password">Show Password</string>
-    <string name="have_account">Already Registered? Click Here to Login</string>
+    <string name="app_name">NU LIRC</string>
 
+    <!-- Have No Idea Where Used -->
+    <string name="links">Quick Links</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <!-- Common Strings -->
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="to_website">Click on any link to continue to the website</string>
+    <string name="action_logout">Logout</string>
+    <string name="name">Name</string>
+
+    <!-- Extras -->
+    <string name="colon"> : </string>
+    <string name="nu">NU</string>
+
+    <!-- Login Page -->
+    <string name="login_page">Login Page</string>
+    <string name="login">Login</string>
+    <string name="no_account">No account yet? Create one</string>
+
+    <!-- Sign Up Page -->
+    <string name="have_account">Already Registered? Click Here to Login</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="member">Already a member? Login</string>
+    <string name="create_account">Create Account</string>
+
+    <!-- Main Page -->
+    <string name="clickToContinue">Click to Continue</string>
+    <string name="description">NU Logo</string>
+
+    <!-- Navigation Menu Items -->
     <string name="about">About</string>
+    <string name="home">Home</string>
     <string name="feedback">Feedback</string>
     <string name="e_resources">E-Resources</string>
     <string name="services">Services</string>
@@ -19,43 +44,13 @@
     <string name="network">Network</string>
     <string name="book_req_form">Book Requisition Form</string>
 
-    <string name="misc">Miscellaneous</string>
+    <!-- Home Page -->
     <string name="issue_return">Issue and Return</string>
-    <string name="new_arrivals">New Arrivals</string>
     <string name="lirc_timings">LIRC Timings</string>
     <string name="lib_time">Library Timing</string>
     <string name="circulation_time">Circulation Timing</string>
-    <string name="admin_login">Admin Login</string>
-    <string name="click_admin">Administrator Login</string>
-    <string name="click_student">Student Login</string>
 
-    <string name="links">Quick Links</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
-
-    <string name="title_activity_quick_links">QuickLinks</string>
-    <string name="title_activity_about">About</string>
-    <string name="title_activity_login">Login</string>
-    <string name="title_activity_admin_login">Admin Login</string>
-    <string name="title_activity_eresources">EResources</string>
-    <string name="title_activity_network">Network</string>
-    <string name="title_activity_nu_at_glance">NU@Glance</string>
-    <string name="title_activity_sign_up">Sign Up</string>
-    <string name="title_activity_settings">Settings</string>
-
-
-    <string name="action_logout">Logout</string>
-    <string name="no_account">No account yet? Create one</string>
-    <string name="sign_up"> Sign Up</string>
-    <string name="name">Name</string>
-    <string name="member">Already a member? Login</string>
-    <string name="create_account">Create Account</string>
-    <string name="description">NU Logo</string>
-
+    <!-- Library Timings -->
     <string name="mon_fri_lib_time">Monday to Friday : 09:30 AM to 00:00 Midnight</string>
     <string name="sat_lib_time">Saturday : 09:30 AM to 07:00 PM</string>
     <string name="sun_lib_time">Sunday : 09:30 AM to 05:30 PM (Lunch Time 01: 00 PM to 01:45 PM)</string>
@@ -64,10 +59,27 @@
     <string name="sun_ex_time">Sunday : 09:30 AM to 08:00 PM (Lunch Time 01: 00 PM to 01:45 PM)</string>
     <string name="mon_sat_circ_time">Monday to Saturday : 10:00 AM to 07:00 PM</string>
     <string name="sun_circ_time">Sunday : 10:00 AM to 05:30 PM</string>
-
-    <string name="contact_lib">Contact Librarian</string>
     <string name="closed">The LIRC remains closed on all University holidays except during examination.</string>
 
+    <!-- Contact Librarian -->
+    <string name="contact_lib">Contact Librarian</string>
+    <string name="query_title">Query Title</string>
+    <string name="query_desc">Query Description</string>
+    <string name="contact">Submit Query</string>
+
+    <!-- Activity Titles -->
+    <string name="title_activity_quick_links">Home</string>
+    <string name="title_activity_about">About</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_eresources">E-Resources</string>
+    <string name="title_activity_network">Network</string>
+    <string name="title_activity_sign_up">Sign Up</string>
+    <string name="title_activity_services">Services Activity</string>
+    <string name="title_activity_online_learning">Online Learning</string>
+    <string name="title_activity_open_access">Open Access</string>
+    <string name="title_activity_issue_return">Issue Return</string>
+
+    <!-- About Page -->
     <string name="intro">Introduction</string>
     <string name="vision_mission">Vision And Mission</string>
     <string name="user_facilities">User Facilities</string>
@@ -76,16 +88,15 @@
     <string name="collection">Collections</string>
     <string name="general_rules">General Rules</string>
 
+    <!-- Services Page -->
     <string name="ref">Reference</string>
     <string name="lib_loan">Inter Library Loan</string>
     <string name="repro_fac">Reprographic Facilities</string>
     <string name="user_orientation">User Orientation Programmes</string>
     <string name="knowledge">Knowledge Dissemination Cell</string>
     <string name="sugamya">Sugamya Pustakalaya</string>
-    <string name="title_activity_services">ServicesActivity</string>
-    <string name="title_activity_online_learning">OnlineLearning</string>
-    <string name="title_activity_open_access">OpenAccess</string>
 
+    <!-- Online Learning -->
     <string name="e_Path">e-PGPathshala</string>
     <string name="swayam">Swayam</string>
     <string name="vidwan">Vidwan</string>
@@ -93,50 +104,41 @@
     <string name="nptel">NPTEL</string>
     <string name="vidya_mitra">Vidya Mitra</string>
 
+    <!-- Open Access Fragment Titles -->
     <string name="e_journals">E-Journals</string>
     <string name="e_books">E-Books</string>
     <string name="anti_plag">Anti Plagiarism</string>
     <string name="theses">Theses</string>
 
+    <!-- E-Journals -->
     <string name="academic_journals">Academic Journals</string>
-    <string name="african_journals">African Journals</string>
     <string name="aircc">AIRCC Digital Library</string>
-    <string name="cog_prints">Cog Prints</string>
-    <string name="doaj">DOAJ</string>
-    <string name="high_wire">High Wire</string>
-    <string name="ias">IAS</string>
-    <string name="ijcms">IJCMS</string>
-    <string name="journals_seek">Journals Seek</string>
-    <string name="muse_india">Muse India</string>
-    <string name="ncert">NCERT</string>
-    <string name="oalib">OALIB</string>
-    <string name="online_journals">Online Journals</string>
     <string name="nopr">NOPR</string>
-    <string name="springer_open">Springer Open</string>
+    <string name="journals_seek">Journals Seek</string>
+    <string name="ncert">NCERT</string>
+    <string name="online_journals">Online Journals</string>
+    <string name="ias">IAS</string>
     <string name="south_asia">South Asia Archive</string>
     <string name="world_sci">World Scientific</string>
-    <string name="title_activity_issue_return">Issue Return</string>
-    
+
+    <!-- E-Books -->
     <string name="collections_archive">Collections Archive</string>
     <string name="college_textbooks">College Textbooks</string>
-    <string name="doab">DOAB</string>
     <string name="e_books_directory">E-Books Directory</string>
     <string name="google_books">Google Books</string>
     <string name="google_scholar">Google Scholar</string>
-    <string name="google_patents">Google Patents</string>
     <string name="gutenberg">Gutenberg</string>
     <string name="intech_books">INTECH Books</string>
-    <string name="oapen">OAPEN</string>
-    <string name="okr">OKR</string>
     <string name="open_edu_resources">Open Education Resources</string>
     <string name="open_textbooks">Open Textbooks</string>
     <string name="open_lib">Open Library</string>
-    <string name="student_pirgs">Student Pirgs</string>
     <string name="world_e_books">World E-Books Library</string>
 
+    <!-- Anti Plagiarism -->
     <string name="plagiarism">Plagiarism</string>
     <string name="checker_detection">Plagiarism Checker and Detection</string>
-    
+
+    <!-- Theses -->
     <string name="shodhganga">Shodhganga</string>
     <string name="shodhgangotri">ShodhGangotri</string>
     <string name="online_digital">Online Digital Theses</string>
@@ -144,5 +146,26 @@
     <string name="digital_repos">Digital Repository of Theses and Dissertations</string>
     <string name="int_theses">International Theses</string>
     <string name="dart_europe">DART-Europe E-Theses Portal</string>
+
+    <!-- Network Page -->
+    <string name="delnet">DELNET</string>
+    <string name="ndl">NDL</string>
+    <string name="indcat">IndCat</string>
+    <string name="inflibnet">INFLIBNET Center Publications</string>
+    <string name="infoport">INFOPORT</string>
+    <string name="icssr">ICSSR Data Services</string>
+    <string name="ess">ESS</string>
+
+    <!-- E-Resources -->
+    <string name="access_eng">Access Engineering</string>
+    <string name="acm">ACM Digital Library</string>
+    <string name="capitaline">Capitaline</string>
+    <string name="prowess">CMIE - ProwessIQ</string>
+    <string name="icra">ICRA Reports</string>
+    <string name="ieee">IEEE (ASPP + POP)</string>
+    <string name="jstor">JSTOR</string>
+    <string name="jccc">JCCC</string>
+    <string name="math_sci_net">MathSciNet</string>
+    <string name="science_direct">Science Direct</string>
 
 </resources>

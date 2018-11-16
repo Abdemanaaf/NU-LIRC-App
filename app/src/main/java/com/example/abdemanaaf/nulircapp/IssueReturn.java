@@ -1,5 +1,6 @@
 package com.example.abdemanaaf.nulircapp;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -17,14 +18,27 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class IssueReturn extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private String userId;
+
+    private TextView mUsername;
+    private TextView mEmail;
+
+    private ProgressDialog mProgress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +46,8 @@ public class IssueReturn extends AppCompatActivity
         setContentView(R.layout.activity_issue_return);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        mProgress = new ProgressDialog(this);
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -41,6 +57,10 @@ public class IssueReturn extends AppCompatActivity
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        View header = navigationView.getHeaderView(0);
+        mUsername = header.findViewById(R.id.nav_username);
+        mEmail = header.findViewById(R.id.nav_email);
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -56,6 +76,23 @@ public class IssueReturn extends AppCompatActivity
             }
         };
 
+        DatabaseReference mDatabaseReference = FirebaseDatabase.getInstance().getReference();
+        FirebaseUser user = mAuth.getCurrentUser();
+
+        userId = user.getUid();
+
+        mDatabaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                showData(dataSnapshot);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
         WebView webView = findViewById(R.id.webView);
         webView.setWebViewClient(new MyBrowser());
 
@@ -63,13 +100,37 @@ public class IssueReturn extends AppCompatActivity
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
         webView.loadUrl("http://library.niituniversity.in/");
+
     }
 
     private class MyBrowser extends WebViewClient {
+
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
             view.loadUrl(url);
             return true;
+        }
+
+        public void onPageFinished(WebView view, String url) {
+            if (mProgress.isShowing()) {
+                mProgress.dismiss();
+            }
+        }
+    }
+
+    private void showData(DataSnapshot dataSnapshot) {
+
+        for (DataSnapshot ds : dataSnapshot.getChildren()) {
+
+            UserInformation userInfo = new UserInformation();
+            userInfo.setName(ds.child(userId).getValue(UserInformation.class).getName());
+            userInfo.setEmail(ds.child(userId).getValue(UserInformation.class).getEmail());
+
+            String name = userInfo.getName();
+            String email = userInfo.getEmail();
+
+            mUsername.setText(name);
+            mEmail.setText(email);
         }
     }
 
@@ -77,6 +138,9 @@ public class IssueReturn extends AppCompatActivity
     protected void onStart() {
         super.onStart();
         mAuth.addAuthStateListener(mAuthListener);
+
+        mProgress.setMessage("Loading...");
+        mProgress.show();
     }
 
     @Override
@@ -110,6 +174,10 @@ public class IssueReturn extends AppCompatActivity
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
+        if (id == R.id.home) {
+            startActivity(new Intent(IssueReturn.this, QuickLinks.class));
+            finish();
+        }
         if (id == R.id.navE_Resources) {
             startActivity(new Intent(IssueReturn.this, EResourcesActivity.class));
             finish();

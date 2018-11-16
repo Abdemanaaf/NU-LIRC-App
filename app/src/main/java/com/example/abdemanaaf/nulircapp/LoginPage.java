@@ -36,7 +36,6 @@ public class LoginPage extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mProgress = new ProgressDialog(this);
 
-        TextView adminLogin = findViewById(R.id.clickAdminLogin);
         TextView signUp = findViewById(R.id.sign_up_link);
         Button login = findViewById(R.id.loginButton);
 
@@ -44,14 +43,6 @@ public class LoginPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(LoginPage.this, SignUpPage.class));
-                finish();
-            }
-        });
-
-        adminLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(LoginPage.this, AdminLogin.class));
                 finish();
             }
         });
@@ -100,6 +91,12 @@ public class LoginPage extends AppCompatActivity {
                     });
 
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }
 

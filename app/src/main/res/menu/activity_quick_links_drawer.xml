@@ -3,7 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
+    <group
+        android:id="@+id/group_one"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/home"
+            android:title="@string/home" />
+
+    </group>
+
+    <group
+        android:id="@+id/group_two"
+        android:checkableBehavior="single">
+
         <item
             android:id="@+id/navE_Resources"
             android:title="@string/e_resources" />
@@ -22,22 +35,24 @@
 
         <item
             android:id="@+id/navNetwork"
-            android:title="@string/network"/>
+            android:title="@string/network" />
 
     </group>
 
-    <item android:title="@string/misc">
-        <menu>
-            <item
-                android:id="@+id/navAbout"
-                android:title="@string/about" />
-            <item
-                android:id="@+id/bookReqForm"
-                android:title="@string/book_req_form" />
-            <item
-                android:id="@+id/navFeedback"
-                android:title="@string/feedback" />
-        </menu>
-    </item>
+    <group
+        android:id="@+id/group_three"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/navAbout"
+            android:title="@string/about" />
+        <item
+            android:id="@+id/bookReqForm"
+            android:title="@string/book_req_form" />
+        <item
+            android:id="@+id/navFeedback"
+            android:title="@string/feedback" />
+
+    </group>
 
 </menu>

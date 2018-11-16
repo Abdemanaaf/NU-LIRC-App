@@ -1,11 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ECF0F1"
+    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".NetworkActivity"
     tools:showIn="@layout/app_bar_network">
 
-</ScrollView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/to_website"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:textStyle="italic"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="16dp"
+        android:layout_gravity="center">
+
+        <TextView
+            android:id="@+id/delnet"
+            android:text="@string/delnet"
+            style="@style/text_views_links" />
+
+        <TextView
+            android:id="@+id/ndl"
+            android:text="@string/ndl"
+            style="@style/text_views_links" />
+
+        <TextView
+            android:id="@+id/indcat"
+            android:text="@string/indcat"
+            style="@style/text_views_links"/>
+
+        <TextView
+            android:id="@+id/inflibnet"
+            android:text="@string/inflibnet"
+            style="@style/text_views_links"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/infoport"
+            android:text="@string/infoport"
+            style="@style/text_views_links"/>
+
+        <TextView
+            android:id="@+id/icssr"
+            android:text="@string/icssr"
+            style="@style/text_views_links"/>
+
+        <TextView
+            android:id="@+id/ess"
+            android:text="@string/ess"
+            style="@style/text_views_links"/>
+
+    </LinearLayout>
+
+</LinearLayout>

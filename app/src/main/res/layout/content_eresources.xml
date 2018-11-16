@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ECF0F1"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".EResourcesActivity"
     tools:showIn="@layout/app_bar_eresources">
@@ -11,104 +12,68 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="16dp">
-
-        <ToggleButton
-            android:id="@+id/ref"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="32dp"
-            android:fontFamily="sans-serif-light"
-            android:textOff="@string/ref"
-            android:textOn="@string/ref"
-            android:textSize="24sp" />
+        android:layout_gravity="center"
+        android:layout_margin="8dp"
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/refText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <ToggleButton
-            android:id="@+id/libLoan"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/to_website"
             android:layout_gravity="center"
-            android:layout_marginTop="16dp"
-            android:fontFamily="sans-serif-light"
-            android:textOn="@string/lib_loan"
-            android:textOff="@string/lib_loan"
-            android:textSize="24sp" />
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:textStyle="italic"/>
 
         <TextView
-            android:id="@+id/libLoanText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <ToggleButton
-            android:id="@+id/reproFac"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="16dp"
-            android:fontFamily="sans-serif-light"
-            android:textOn="@string/repro_fac"
-            android:textOff="@string/repro_fac"
-            android:textSize="24sp" />
+            android:id="@+id/accessEng"
+            android:text="@string/access_eng"
+            style="@style/text_views_links_fragment" />
 
         <TextView
-            android:id="@+id/reproFacText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <ToggleButton
-            android:id="@+id/userOrien"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="16dp"
-            android:fontFamily="sans-serif-light"
-            android:textOn="@string/user_orientation"
-            android:textOff="@string/user_orientation"
-            android:textSize="24sp" />
+            android:id="@+id/acm"
+            android:text="@string/acm"
+            style="@style/text_views_links_fragment" />
 
         <TextView
-            android:id="@+id/userOrienText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <ToggleButton
-            android:id="@+id/knowledge"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="16dp"
-            android:fontFamily="sans-serif-light"
-            android:textOn="@string/knowledge"
-            android:textOff="@string/knowledge"
-            android:textSize="24sp" />
+            android:id="@+id/capitaline"
+            android:text="@string/capitaline"
+            style="@style/text_views_links_fragment" />
 
         <TextView
-            android:id="@+id/knowledgeText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <ToggleButton
-            android:id="@+id/sugamya"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="16dp"
-            android:fontFamily="sans-serif-light"
-            android:textOn="@string/sugamya"
-            android:textOff="@string/sugamya"
-            android:textSize="24sp" />
+            android:id="@+id/prowess"
+            android:text="@string/prowess"
+            style="@style/text_views_links_fragment" />
 
         <TextView
-            android:id="@+id/sugamyaText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:id="@+id/icra"
+            android:text="@string/icra"
+            style="@style/text_views_links_fragment" />
+
+        <TextView
+            android:id="@+id/ieee"
+            android:text="@string/ieee"
+            style="@style/text_views_links_fragment" />
+
+        <TextView
+            android:id="@+id/jstor"
+            android:text="@string/jstor"
+            style="@style/text_views_links_fragment" />
+
+        <TextView
+            android:id="@+id/jccc"
+            android:text="@string/jccc"
+            style="@style/text_views_links_fragment" />
+
+        <TextView
+            android:id="@+id/mathSciNet"
+            android:text="@string/math_sci_net"
+            style="@style/text_views_links_fragment" />
+
+        <TextView
+            android:id="@+id/scienceDirect"
+            android:text="@string/science_direct"
+            style="@style/text_views_links_fragment" />
 
     </LinearLayout>
 
